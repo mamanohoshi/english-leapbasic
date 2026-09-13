@@ -21,7 +21,10 @@
             padding: 24px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             box-sizing: border-box;
-            min-height: 450px;
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         h1, h2 { text-align: center; color: #333; margin-top: 0; }
         .btn {
@@ -47,7 +50,7 @@
             font-size: 26px;
             font-weight: bold;
             text-align: center;
-            margin: 20px 0;
+            margin: 15px 0;
             color: #2C3E50;
         }
         .hint-display {
@@ -80,7 +83,25 @@
             margin: 20px 0;
             white-space: pre-wrap;
         }
-        /* 画面切り替え用の設定 */
+        /* 判定オーバーレイのスタイル */
+        .feedback-area {
+            text-align: center;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 10px;
+        }
+        .correct {
+            background-color: #E8F8F5;
+            color: #2ECC71;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .incorrect {
+            background-color: #FDEDEC;
+            color: #E74C3C;
+            font-size: 18px;
+            font-weight: bold;
+        }
         .is-hidden {
             display: none !important;
         }
@@ -106,22 +127,30 @@
 
     <!-- 2. クイズ画面 -->
     <div id="screen-quiz" class="is-hidden">
-        <div class="progress" id="quiz-progress">1 / 10</div>
-        <div class="word-display" id="question-text">word</div>
-        
-        <!-- 4択モード用 -->
-        <div id="choice-area">
-            <button class="btn btn-option" onclick="checkChoice(0)" id="opt0"></button>
-            <button class="btn btn-option" onclick="checkChoice(1)" id="opt1"></button>
-            <button class="btn btn-option" onclick="checkChoice(2)" id="opt2"></button>
-            <button class="btn btn-option" onclick="checkChoice(3)" id="opt3"></button>
-        </div>
+        <div>
+            <div class="progress" id="quiz-progress">1 / 10</div>
+            <div class="word-display" id="question-text">word</div>
+            
+            <!-- 4択モード用 -->
+            <div id="choice-area">
+                <button class="btn btn-option" onclick="checkChoice(0)" id="opt0"></button>
+                <button class="btn btn-option" onclick="checkChoice(1)" id="opt1"></button>
+                <button class="btn btn-option" onclick="checkChoice(2)" id="opt2"></button>
+                <button class="btn btn-option" onclick="checkChoice(3)" id="opt3"></button>
+            </div>
 
-        <!-- スペル入力モード用 -->
-        <div id="input-area" class="is-hidden">
-            <div class="hint-display" id="hint-text">w _ _ _</div>
-            <input type="text" id="user-input" placeholder="ここに入力..." autocomplete="off" autocapitalize="off">
-            <button class="btn" onclick="checkInput()">回答する</button>
+            <!-- スペル入力モード用 -->
+            <div id="input-area" class="is-hidden">
+                <div class="hint-display" id="hint-text">w _ _ _</div>
+                <input type="text" id="user-input" placeholder="ここに入力..." autocomplete="off" autocapitalize="off">
+                <button class="btn" id="submit-input-btn" onclick="checkInput()">回答する</button>
+            </div>
+
+            <!-- 判定表示エリア -->
+            <div id="feedback-area" class="feedback-area is-hidden">
+                <div id="feedback-text"></div>
+                <button class="btn" style="margin-top: 15px; background-color: #2C3E50;" onclick="nextQuestion()">次へ進む ➔</button>
+            </div>
         </div>
     </div>
 
@@ -187,22 +216,19 @@ function startQuiz(mode) {
     document.getElementById('screen-setup').classList.add('is-hidden');
     document.getElementById('screen-quiz').classList.remove('is-hidden');
 
-    if (mode === 'choice') {
-        document.getElementById('choice-area').classList.remove('is-hidden');
-        document.getElementById('input-area').classList.add('is-hidden');
-    } else {
-        document.getElementById('choice-area').classList.add('is-hidden');
-        document.getElementById('input-area').classList.remove('is-hidden');
-    }
-    
     loadQuestion();
 }
 
 function loadQuestion() {
+    // 判定エリアを隠す
+    document.getElementById('feedback-area').classList.add('is-hidden');
+    
     const q = currentQuestions[currentIndex];
     document.getElementById('quiz-progress').innerText = `${currentIndex + 1} / ${currentQuestions.length}`;
 
     if (currentMode === 'choice') {
+        document.getElementById('choice-area').classList.remove('is-hidden');
+        document.getElementById('input-area').classList.add('is-hidden');
         document.getElementById('question-text').innerText = q.en;
         
         const allWords = Object.values(wordBank).flat();
@@ -213,9 +239,13 @@ function loadQuestion() {
         for (let i = 0; i < 4; i++) {
             const btn = document.getElementById(`opt${i}`);
             btn.innerText = options[i];
+            btn.disabled = false;
             btn.dataset.correct = (options[i] === q.jp);
         }
     } else {
+        document.getElementById('choice-area').classList.add('is-hidden');
+        document.getElementById('input-area').classList.remove('is-hidden');
+        document.getElementById('submit-input-btn').classList.remove('is-hidden');
         document.getElementById('question-text').innerText = q.jp;
         
         const hint = q.en.split(' ').map(word => {
@@ -224,21 +254,47 @@ function loadQuestion() {
         
         document.getElementById('hint-text').innerText = hint;
         document.getElementById('user-input').value = '';
+        document.getElementById('user-input').disabled = false;
+    }
+}
+
+function showFeedback(isCorrect, answerText) {
+    const feedbackArea = document.getElementById('feedback-area');
+    const feedbackText = document.getElementById('feedback-text');
+    
+    feedbackArea.classList.remove('is-hidden');
+    
+    if (isCorrect) {
+        score++;
+        feedbackArea.className = "feedback-area correct";
+        feedbackText.innerText = "⭕ 正解！";
+    } else {
+        feedbackArea.className = "feedback-area incorrect";
+        feedbackText.innerText = `❌ 残念... \n正解： ${answerText}`;
     }
 }
 
 function checkChoice(index) {
     const isCorrect = document.getElementById(`opt${index}`).dataset.correct === "true";
-    if (isCorrect) score++;
-    nextQuestion();
+    const q = currentQuestions[currentIndex];
+    
+    // ボタンを一時的に連打できないようにする
+    for (let i = 0; i < 4; i++) {
+        document.getElementById(`opt${i}`).disabled = true;
+    }
+    
+    showFeedback(isCorrect, q.jp);
 }
 
 function checkInput() {
     const userAns = document.getElementById('user-input').value.trim().toLowerCase();
     const targetAns = currentQuestions[currentIndex].en.toLowerCase();
+    const isCorrect = (userAns === targetAns);
     
-    if (userAns === targetAns) score++;
-    nextQuestion();
+    document.getElementById('user-input').disabled = true;
+    document.getElementById('submit-input-btn').classList.add('is-hidden');
+    
+    showFeedback(isCorrect, currentQuestions[currentIndex].en);
 }
 
 function nextQuestion() {
