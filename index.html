@@ -28,9 +28,9 @@
         }
         h1, h2 { text-align: center; color: #333; margin-top: 0; }
         .btn {
-            background-color: #4A90E2;
+            background: linear-gradient(to bottom, #4A90E2, #357ABD);
             color: white;
-            border: none;
+            border: 2px solid #296096;
             padding: 16px;
             border-radius: 12px;
             font-size: 18px;
@@ -38,51 +38,56 @@
             width: 100%;
             margin-bottom: 20px;
             cursor: pointer;
-            box-shadow: 0 5px 0 #357ABD; /* 枠線なしのフラットな立体影 */
+            box-shadow: 0 5px 0 #296096;
             transition: all 0.1s ease;
         }
         .btn:active {
             transform: translateY(3px);
-            box-shadow: 0 2px 0 #357ABD;
+            box-shadow: 0 2px 0 #296096;
         }
 
-        /* 4択ボタン（枠線なし・影のみ・文字拡大・間隔2倍） */
+        /* 4択ボタン（緑がかった青・光沢感グラデーション・立体枠線・広めの間隔） */
         .btn-option {
-            background-color: #F8FAFC;
-            color: #2C3E50;
+            background: linear-gradient(to bottom, #2980B9, #1F618D); /* 緑がかった濃いブルー */
+            color: #FFFFFF;
             text-align: left;
             padding: 18px;
-            font-size: 18px; /* 文字サイズ拡大 */
+            font-size: 18px;
             font-weight: bold;
-            border: none; /* 枠線を完全に消去 */
-            box-shadow: 0 5px 0 #E2E8F0; /* 影のみで立体化 */
-            margin-bottom: 24px; /* 間隔を広げる（従来の2倍） */
+            border: 2px solid #1A5276; /* 輪郭を際立たせる枠線 */
+            border-radius: 12px;
+            box-shadow: 0 5px 0 #154360, inset 0 1px 1px rgba(255,255,255,0.4); /* 下影 ＋ 上部の光沢感 */
+            margin-bottom: 24px;
             line-height: 1.4;
+            transition: all 0.1s ease;
         }
         .btn-option:active {
             transform: translateY(3px);
-            box-shadow: 0 2px 0 #E2E8F0;
+            box-shadow: 0 2px 0 #154360, inset 0 1px 1px rgba(255,255,255,0.4);
         }
 
-        /* 選択されたボタン（青色ハイライト） */
+        /* 選択されたボタン（明るいシアンブルー・ハイライト） */
         .btn-option.selected {
-            background-color: #4A90E2 !important;
-            color: white !important;
-            box-shadow: 0 5px 0 #2A6197 !important;
+            background: linear-gradient(to bottom, #00C9FF, #92FE9D) !important;
+            color: #003344 !important;
+            border-color: #0088A8 !important;
+            box-shadow: 0 5px 0 #006680 !important;
         }
 
-        /* 正解のボタン（背景緑・白文字） */
+        /* 正解のボタン（エメラルドブルー・鮮やか光沢） */
         .btn-option.correct-choice {
-            background-color: #2ECC71 !important;
-            color: white !important;
-            box-shadow: 0 5px 0 #27AE60 !important;
+            background: linear-gradient(to bottom, #1ABC9C, #16A085) !important; /* 緑がかった青 */
+            color: #FFFFFF !important;
+            border-color: #117864 !important;
+            box-shadow: 0 5px 0 #0E6251, inset 0 1px 1px rgba(255,255,255,0.5) !important;
         }
 
-        /* 間違えたボタン（背景赤・白文字） */
+        /* 間違えたボタン（レッド） */
         .btn-option.wrong-choice {
-            background-color: #E74C3C !important;
-            color: white !important;
-            box-shadow: 0 5px 0 #C0392B !important;
+            background: linear-gradient(to bottom, #E74C3C, #C0392B) !important;
+            color: #FFFFFF !important;
+            border-color: #962D22 !important;
+            box-shadow: 0 5px 0 #76241C !important;
         }
 
         .word-display {
@@ -132,7 +137,7 @@
         }
         .correct {
             background-color: #E8F8F5;
-            color: #2ECC71;
+            color: #16A085;
             font-size: 22px;
             font-weight: bold;
         }
@@ -162,7 +167,7 @@
         </select>
 
         <button class="btn" onclick="startQuiz('choice')">4択クイズモード</button>
-        <button class="btn" style="background-color: #9B59B6; box-shadow: 0 5px 0 #7D3C98;" onclick="startQuiz('input')">1文字ヒントスペル入力</button>
+        <button class="btn" style="background: linear-gradient(to bottom, #9B59B6, #7D3C98); border-color: #5B2C6F; box-shadow: 0 5px 0 #5B2C6F;" onclick="startQuiz('input')">1文字ヒントスペル入力</button>
     </div>
 
     <!-- 2. クイズ画面 -->
@@ -189,7 +194,7 @@
             <!-- 判定表示エリア -->
             <div id="feedback-area" class="feedback-area is-hidden">
                 <div id="feedback-text"></div>
-                <button class="btn" style="margin-top: 15px; background-color: #2C3E50; box-shadow: 0 5px 0 #1A252F;" onclick="nextQuestion()">次へ進む ➔</button>
+                <button class="btn" style="margin-top: 15px; background: linear-gradient(to bottom, #34495E, #2C3E50); border-color: #1A252F; box-shadow: 0 5px 0 #1A252F;" onclick="nextQuestion()">次へ進む ➔</button>
             </div>
         </div>
     </div>
