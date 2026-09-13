@@ -28,9 +28,8 @@
         }
         h1, h2 { text-align: center; color: #1E293B; margin-top: 0; }
         
-        /* 基本ボタン（トップ・回答・次へ進む等：枠線なし） */
+        /* 基本ボタン（共通ベース） */
         .btn {
-            background: linear-gradient(180deg, #334155 0%, #1E293B 100%); /* 落ち着いたダークグレー */
             color: white;
             border: none !important;
             padding: 16px;
@@ -40,17 +39,34 @@
             width: 100%;
             margin-bottom: 20px;
             cursor: pointer;
-            box-shadow: 0 6px 16px rgba(30, 41, 59, 0.2);
             transition: all 0.2s ease;
         }
         .btn:active {
             transform: scale(0.98);
         }
 
-        /* 4択ボタン（選択前も解答後の未選択ボタンと同じ色・文字色：背景#E2E8F0 / 文字#94A3B8） */
+        /* トップページ用：シアン系ボタン */
+        .btn-primary {
+            background: linear-gradient(180deg, #0891B2 0%, #06B6D4 100%);
+            box-shadow: 0 6px 16px rgba(6, 182, 212, 0.3);
+        }
+
+        /* トップページ用：パープル系ボタン */
+        .btn-purple {
+            background: linear-gradient(180deg, #7C3AED 0%, #8B5CF6 100%);
+            box-shadow: 0 6px 16px rgba(139, 92, 246, 0.3);
+        }
+
+        /* 汎用アクションボタン（次へ進む等） */
+        .btn-dark {
+            background: linear-gradient(180deg, #334155 0%, #1E293B 100%);
+            box-shadow: 0 6px 16px rgba(30, 41, 59, 0.2);
+        }
+
+        /* 4択ボタン（グレー背景：#E2E8F0 / 文字色：#94A3B8） */
         .btn-option {
             background: #E2E8F0; 
-            color: #94A3B8; /* 解答後未選択と同じ文字色 */
+            color: #94A3B8;
             text-align: left;
             padding: 18px;
             font-size: 18px;
@@ -74,20 +90,20 @@
             border: none !important;
         }
 
-        /* 正解のボタン（判定用緑枠のみ表示） */
+        /* 正解のボタン（背景色は変えず緑枠のみ追加） */
         .btn-option.correct-choice {
-            background: #F0FDF4 !important;
-            color: #166534 !important;
+            background: #E2E8F0 !important;
+            color: #94A3B8 !important;
             border: 3px solid #22C55E !important;
-            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15) !important;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2) !important;
         }
 
-        /* 間違えたボタン（判定用赤枠のみ表示） */
+        /* 間違えたボタン（背景色は変えず赤枠のみ追加） */
         .btn-option.wrong-choice {
-            background: #FEF2F2 !important;
-            color: #991B1B !important;
+            background: #E2E8F0 !important;
+            color: #94A3B8 !important;
             border: 3px solid #EF4444 !important;
-            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15) !important;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2) !important;
         }
 
         /* ヘッダー周り（進捗と中断ボタン） */
@@ -190,8 +206,8 @@
             <option value="unit2">単元 2：頻出前置詞フレーズ</option>
         </select>
 
-        <button class="btn" onclick="startQuiz('choice')">4択クイズモード</button>
-        <button class="btn" style="background: linear-gradient(180deg, #475569 0%, #334155 100%); box-shadow: 0 6px 16px rgba(71, 85, 105, 0.2);" onclick="startQuiz('input')">スペル入力モード</button>
+        <button class="btn btn-primary" onclick="startQuiz('choice')">4択クイズモード</button>
+        <button class="btn btn-purple" onclick="startQuiz('input')">スペル入力モード</button>
     </div>
 
     <!-- 2. クイズ画面 -->
@@ -216,13 +232,13 @@
             <div id="input-area" class="is-hidden">
                 <div class="hint-display" id="hint-text">w _ _ _</div>
                 <input type="text" id="user-input" placeholder="ここに入力..." autocomplete="off" autocapitalize="off">
-                <button class="btn" id="submit-input-btn" onclick="checkInput()">回答する</button>
+                <button class="btn btn-purple" id="submit-input-btn" onclick="checkInput()">回答する</button>
             </div>
 
             <!-- 判定表示エリア -->
             <div id="feedback-area" class="feedback-area is-hidden">
                 <div id="feedback-text"></div>
-                <button class="btn" style="margin-top: 15px; background: #334155; box-shadow: 0 4px 12px rgba(51, 65, 85, 0.2);" onclick="nextQuestion()">次へ進む ➔</button>
+                <button class="btn btn-dark" style="margin-top: 15px;" onclick="nextQuestion()">次へ進む ➔</button>
             </div>
         </div>
     </div>
@@ -232,7 +248,7 @@
         <h2>おつかれさま！</h2>
         <div class="word-display" id="score-text">10 / 10</div>
         <div class="result-msg" id="cheer-message">素晴らしい！完璧です！</div>
-        <button class="btn" onclick="showSetup()">もう一度学習する</button>
+        <button class="btn btn-primary" onclick="showSetup()">もう一度学習する</button>
     </div>
 </div>
 
