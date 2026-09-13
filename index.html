@@ -47,10 +47,10 @@
             transform: scale(0.98);
         }
 
-        /* 4択ボタン（選択前も選択後と同じグレー：#E2E8F0） */
+        /* 4択ボタン（選択前も解答後の未選択ボタンと同じ色・文字色：背景#E2E8F0 / 文字#94A3B8） */
         .btn-option {
             background: #E2E8F0; 
-            color: #1E293B; /* 濃い文字色 */
+            color: #94A3B8; /* 解答後未選択と同じ文字色 */
             text-align: left;
             padding: 18px;
             font-size: 18px;
@@ -349,7 +349,7 @@ function showFeedback(isCorrect, answerText) {
         feedbackText.innerText = "⭕ 正解！";
     } else {
         feedbackArea.className = "feedback-area incorrect";
-        feedbackText.innerText = `❌ 残念... \n正解： ${answerText}`;
+        feedbackText.innerText = `❌ 残念...\n\n正解： ${answerText}`;
     }
 }
 
