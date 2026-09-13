@@ -30,7 +30,7 @@
         
         /* 基本ボタン（トップ・回答・次へ進む等：枠線なし） */
         .btn {
-            background: linear-gradient(180deg, #1E3A8A 0%, #1E40AF 100%); /* 落ち着いたダークブルー */
+            background: linear-gradient(180deg, #334155 0%, #1E293B 100%); /* 落ち着いたダークグレー */
             color: white;
             border: none !important;
             padding: 16px;
@@ -40,16 +40,16 @@
             width: 100%;
             margin-bottom: 20px;
             cursor: pointer;
-            box-shadow: 0 6px 16px rgba(30, 58, 138, 0.25);
+            box-shadow: 0 6px 16px rgba(30, 41, 59, 0.2);
             transition: all 0.2s ease;
         }
         .btn:active {
             transform: scale(0.98);
         }
 
-        /* 4択ボタン（選択前もグレー・枠線なし・表面張力風の影） */
+        /* 4択ボタン（選択前も選択後と同じグレー：#E2E8F0） */
         .btn-option {
-            background: linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%); /* ライトグレー */
+            background: #E2E8F0; 
             color: #1E293B; /* 濃い文字色 */
             text-align: left;
             padding: 18px;
@@ -57,7 +57,7 @@
             font-weight: bold;
             border: none;
             border-radius: 16px;
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06), inset 0 2px 3px rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
             margin-bottom: 20px;
             line-height: 1.4;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -66,7 +66,7 @@
             transform: scale(0.98);
         }
 
-        /* 解答後：未選択の選択肢（トーンを少し落としたグレー） */
+        /* 解答後：未選択の選択肢 */
         .btn-option.disabled-option {
             background: #E2E8F0 !important;
             color: #94A3B8 !important;
@@ -98,7 +98,7 @@
             margin-bottom: 10px;
         }
         .btn-abort {
-            background: #F1F5F9;
+            background: #E2E8F0;
             color: #64748B;
             border: none;
             padding: 6px 12px;
@@ -108,7 +108,7 @@
             cursor: pointer;
         }
         .btn-abort:active {
-            background: #E2E8F0;
+            background: #CBD5E1;
         }
 
         .word-display {
@@ -147,7 +147,7 @@
             font-size: 18px;
             font-weight: bold;
             text-align: center;
-            color: #1E3A8A;
+            color: #1E293B;
             margin: 20px 0;
             white-space: pre-wrap;
         }
@@ -191,7 +191,7 @@
         </select>
 
         <button class="btn" onclick="startQuiz('choice')">4択クイズモード</button>
-        <button class="btn" style="background: linear-gradient(180deg, #581C87 0%, #6B21A8 100%); box-shadow: 0 6px 16px rgba(88, 28, 135, 0.25);" onclick="startQuiz('input')">1文字ヒントスペル入力</button>
+        <button class="btn" style="background: linear-gradient(180deg, #475569 0%, #334155 100%); box-shadow: 0 6px 16px rgba(71, 85, 105, 0.2);" onclick="startQuiz('input')">スペル入力モード</button>
     </div>
 
     <!-- 2. クイズ画面 -->
