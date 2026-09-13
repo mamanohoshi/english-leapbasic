@@ -21,7 +21,7 @@
             padding: 24px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             box-sizing: border-box;
-            min-height: 480px;
+            min-height: 520px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -36,21 +36,57 @@
             font-size: 16px;
             font-weight: bold;
             width: 100%;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             cursor: pointer;
+            box-shadow: 0 4px 0 #357ABD; /* 立体的な影 */
+            transition: all 0.1s ease;
         }
+        .btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #357ABD;
+        }
+        /* 4択ボタンの標準デザイン（立体感・間隔強化） */
         .btn-option {
-            background-color: #F0F4F8;
-            color: #333;
+            background-color: #F8FAFC;
+            color: #2C3E50;
             text-align: left;
             padding: 16px;
             font-size: 16px;
+            border: 2px solid #E2E8F0;
+            box-shadow: 0 4px 0 #CBD5E1; /* グレーの立体影 */
+            margin-bottom: 16px; /* ボタン同士の間隔を広げる */
+            line-height: 1.4;
         }
+        .btn-option:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #CBD5E1;
+        }
+        /* 選択されたボタン（青色ハイライト） */
+        .btn-option.selected {
+            background-color: #4A90E2 !important;
+            color: white !important;
+            border-color: #357ABD !important;
+            box-shadow: 0 4px 0 #2A6197 !important;
+        }
+        /* 正解のボタン（緑色枠） */
+        .btn-option.correct-choice {
+            border: 2px solid #2ECC71 !important;
+            background-color: #E8F8F5 !important;
+            color: #27AE60 !important;
+            font-weight: bold;
+        }
+        /* 間違えたボタン（赤色枠） */
+        .btn-option.wrong-choice {
+            border: 2px solid #E74C3C !important;
+            background-color: #FDEDEC !important;
+            color: #C0392B !important;
+        }
+
         .word-display {
             font-size: 26px;
             font-weight: bold;
             text-align: center;
-            margin: 15px 0;
+            margin: 15px 0 20px 0;
             color: #2C3E50;
         }
         .hint-display {
@@ -83,7 +119,7 @@
             margin: 20px 0;
             white-space: pre-wrap;
         }
-        /* 判定オーバーレイのスタイル */
+        /* 判定表示エリア */
         .feedback-area {
             text-align: center;
             padding: 15px;
@@ -116,13 +152,13 @@
         <p style="text-align: center; color: #666; margin-bottom: 25px;">単元とモードを選んでね！</p>
         
         <label for="unit-select"><b>【単元を選択】</b></label>
-        <select id="unit-select" style="width:100%; padding:12px; font-size:16px; margin: 10px 0 25px 0; border-radius:8px;">
+        <select id="unit-select" style="width:100%; padding:12px; font-size:16px; margin: 10px 0 25px 0; border-radius:8px; border: 2px solid #CBD5E1;">
             <option value="unit1">単元 1：基本動詞・熟語</option>
             <option value="unit2">単元 2：頻出前置詞フレーズ</option>
         </select>
 
         <button class="btn" onclick="startQuiz('choice')">4択クイズモード</button>
-        <button class="btn" style="background-color: #9B59B6;" onclick="startQuiz('input')">1文字ヒントスペル入力</button>
+        <button class="btn" style="background-color: #9B59B6; box-shadow: 0 4px 0 #7D3C98;" onclick="startQuiz('input')">1文字ヒントスペル入力</button>
     </div>
 
     <!-- 2. クイズ画面 -->
@@ -149,7 +185,7 @@
             <!-- 判定表示エリア -->
             <div id="feedback-area" class="feedback-area is-hidden">
                 <div id="feedback-text"></div>
-                <button class="btn" style="margin-top: 15px; background-color: #2C3E50;" onclick="nextQuestion()">次へ進む ➔</button>
+                <button class="btn" style="margin-top: 15px; background-color: #2C3E50; box-shadow: 0 4px 0 #1A252F;" onclick="nextQuestion()">次へ進む ➔</button>
             </div>
         </div>
     </div>
@@ -220,7 +256,6 @@ function startQuiz(mode) {
 }
 
 function loadQuestion() {
-    // 判定エリアを隠す
     document.getElementById('feedback-area').classList.add('is-hidden');
     
     const q = currentQuestions[currentIndex];
@@ -240,6 +275,7 @@ function loadQuestion() {
             const btn = document.getElementById(`opt${i}`);
             btn.innerText = options[i];
             btn.disabled = false;
+            btn.className = "btn btn-option"; // スタイル初期化
             btn.dataset.correct = (options[i] === q.jp);
         }
     } else {
@@ -274,13 +310,26 @@ function showFeedback(isCorrect, answerText) {
     }
 }
 
-function checkChoice(index) {
-    const isCorrect = document.getElementById(`opt${index}`).dataset.correct === "true";
+function checkChoice(selectedIndex) {
+    const selectedBtn = document.getElementById(`opt${selectedIndex}`);
+    const isCorrect = selectedBtn.dataset.correct === "true";
     const q = currentQuestions[currentIndex];
     
-    // ボタンを一時的に連打できないようにする
+    // 全ボタンの無効化と色の変化処理
     for (let i = 0; i < 4; i++) {
-        document.getElementById(`opt${i}`).disabled = true;
+        const btn = document.getElementById(`opt${i}`);
+        btn.disabled = true;
+        
+        if (i === selectedIndex) {
+            btn.classList.add('selected'); // 選んだボタンを青色にする
+        }
+        
+        // 正解・不正解の強調（〇×判定補助）
+        if (btn.dataset.correct === "true") {
+            btn.classList.add('correct-choice');
+        } else if (i === selectedIndex && !isCorrect) {
+            btn.classList.add('wrong-choice');
+        }
     }
     
     showFeedback(isCorrect, q.jp);
