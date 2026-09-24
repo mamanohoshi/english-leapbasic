@@ -273,5 +273,401 @@
     "notes": "「if ... not」とほぼ同義。例外的な条件を提示する際に使われる接続詞。",
     "example_en": "We cannot finalize the contract unless all terms are approved.",
     "example_ja": "すべての条件が承認されない限り、契約を締結することはできません。"
+  },
+  ,{
+    "id": 1358,
+    "word": "distant",
+    "phonetic": "[dístənt]",
+    "cefr": "B1",
+    "meanings": [
+      {
+        "part_of_speech": "adjective",
+        "definition": "遠い、離れた"
+      }
+    ],
+    "notes": "地理的な距離だけでなく時間や関係性の遠さにも用いる。語源：dis-[離れて] + stant[立つ]",
+    "related_words": ["distance", "in the distance"],
+    "examples": [
+      {
+        "en": "a distant island in the ocean",
+        "ja": "海洋に浮かぶ遠くの島"
+      }
+    ]
+  },
+  {
+    "id": 1359,
+    "word": "remote",
+    "phonetic": "[rimóut]",
+    "cefr": "A2",
+    "meanings": [
+      {
+        "part_of_speech": "adjective",
+        "definition": "人里離れた、遠隔の"
+      }
+    ],
+    "notes": "中心地から離れて孤立しているニュアンス。リモートワークやリモコンの語源。",
+    "related_words": ["remote control", "remote working"],
+    "examples": [
+      {
+        "en": "live in a remote village",
+        "ja": "へんぴな村に暮らす"
+      }
+    ]
+  },
+  {
+    "id": 1360,
+    "word": "domestic",
+    "phonetic": "[dəméstik]",
+    "cefr": "B2",
+    "meanings": [
+      {
+        "part_of_speech": "adjective",
+        "definition": "①国内の ②家庭内の"
+      }
+    ],
+    "notes": "語源：dome[家]。家の中に関する事柄から発展して国家の内部（国内）を表す。",
+    "related_words": ["domestic flight", "domestic violence"],
+    "examples": [
+      {
+        "en": "a domestic flight schedule",
+        "ja": "国内線の運航スケジュール"
+      },
+      {
+        "en": "prevent domestic violence",
+        "ja": "家庭内暴力を防止する"
+      }
+    ]
+  },
+  {
+    "id": 1361,
+    "word": "locate",
+    "phonetic": "[lóukeit]",
+    "cefr": "B1",
+    "meanings": [
+      {
+        "part_of_speech": "verb",
+        "definition": "(be located)〜に位置している、存在する"
+      }
+    ],
+    "notes": "be動詞単体よりも位置や存在を正確に表す表現。語源：loc-[場所] + -ate",
+    "related_words": ["location"],
+    "examples": [
+      {
+        "en": "My office is located in Tokyo.",
+        "ja": "私の職場は東京に位置している。"
+      }
+    ]
+  },
+  {
+    "id": 1362,
+    "word": "occupy",
+    "phonetic": "[ɑ́kjupai]",
+    "cefr": "B1",
+    "meanings": [
+      {
+        "part_of_speech": "verb",
+        "definition": "〜を占める、占有する"
+      }
+    ],
+    "notes": "時間、場所、空間、あるいは地位などを占める際に使用する。",
+    "related_words": ["occupation"],
+    "examples": [
+      {
+        "en": "occupy two seats on the train",
+        "ja": "電車で2人分の座席を占有する"
+      }
+    ]
+  },
+  {
+    "id": 1363,
+    "word": "surround",
+    "phonetic": "[səráund]",
+    "cefr": "B1",
+    "meanings": [
+      {
+        "part_of_speech": "verb",
+        "definition": "〜を取り囲む、包囲する"
+      }
+    ],
+    "notes": "対象を物理的に周囲から囲む状態を表す。",
+    "related_words": ["surroundings"],
+    "examples": [
+      {
+        "en": "a lake surrounded by forest",
+        "ja": "深い森に囲まれた湖"
+      }
+    ]
+  },
+  {
+    "id": 1364,
+    "word": "occasion",
+    "phonetic": "[əkéiʒən]",
+    "cefr": "B1",
+    "meanings": [
+      {
+        "part_of_speech": "noun",
+        "definition": "特定の機会、場合、行事"
+      }
+    ],
+    "notes": "特定の出来事や特別な機会・特定のタイミングを指す。",
+    "related_words": ["occasional", "occasionally"],
+    "examples": [
+      {
+        "en": "wear formal clothes on this occasion",
+        "ja": "このような特別な機会にはフォーマルな服を着る"
+      }
+    ]
+  },
+  {
+    "id": 1365,
+    "word": "incident",
+    "phonetic": "[ínsədənt]",
+    "cefr": "B1",
+    "meanings": [
+      {
+        "part_of_speech": "noun",
+        "definition": "出来事、思わぬ事件"
+      }
+    ],
+    "notes": "主に思いがけない出来事や偶発的な不快・深刻な事件を指す。",
+    "related_words": ["happening"],
+    "examples": [
+      {
+        "en": "investigate a violent incident",
+        "ja": "暴力事件について調査する"
+      }
+    ]
+  },
+  {
+    "id": 1366,
+    "word": "circumstance",
+    "phonetic": "[sə́ːrkəmstæns]",
+    "cefr": "B2",
+    "meanings": [
+      {
+        "part_of_speech": "noun",
+        "definition": "(通例複数形で) 状況、事情"
+      }
+    ],
+    "notes": "語源：circum-[周囲の円] + stance[立つ] → 周囲を取り巻く環境・情勢",
+    "related_words": ["things"],
+    "examples": [
+      {
+        "en": "under the current circumstances",
+        "ja": "現在の置かれた状況下において"
+      }
+    ]
+  },
+  {
+    "id": 1367,
+    "word": "secure",
+    "phonetic": "[sikjúər]",
+    "cefr": "B1",
+    "meanings": [
+      {
+        "part_of_speech": "adjective",
+        "definition": "①安全な、安心な"
+      },
+      {
+        "part_of_speech": "verb",
+        "definition": "②〜を確保する、手に入れる"
+      }
+    ],
+    "notes": "語源：se-[離れて] + cure[心配] → 心配から解放されている状態",
+    "related_words": ["security"],
+    "examples": [
+      {
+        "en": "feel secure about the future",
+        "ja": "将来について安心感を持つ"
+      },
+      {
+        "en": "secure a window seat on the flight",
+        "ja": "飛行機で窓側の座席を確保する"
+      }
+    ]
+  },
+  {
+    "id": 1368,
+    "word": "rare",
+    "phonetic": "[réər]",
+    "cefr": "B1",
+    "meanings": [
+      {
+        "part_of_speech": "adjective",
+        "definition": "珍しい、めったにない"
+      }
+    ],
+    "notes": "数が少なくて貴重であるという意味合いが含まれる。",
+    "related_words": ["rarely"],
+    "examples": [
+      {
+        "en": "collect rare stamps and coins",
+        "ja": "希少な切手やコインを収集する"
+      }
+    ]
+  },
+  {
+    "id": 1369,
+    "word": "urgent",
+    "phonetic": "[ə́ːrdʒənt]",
+    "cefr": "B1",
+    "meanings": [
+      {
+        "part_of_speech": "adjective",
+        "definition": "緊急の、急を要する"
+      }
+    ],
+    "notes": "動詞 urge（強く促す）の形容詞形。即座の対応が必要な状態。",
+    "related_words": ["urge", "urgency"],
+    "examples": [
+      {
+        "en": "an urgent need for financial support",
+        "ja": "資金援助に対する緊急の必要性"
+      }
+    ]
+  },
+  {
+    "id": 1370,
+    "word": "inevitable",
+    "phonetic": "[inévətəbl]",
+    "cefr": "B1",
+    "meanings": [
+      {
+        "part_of_speech": "adjective",
+        "definition": "避けられない、不可避の"
+      }
+    ],
+    "notes": "語源：in-[否定] + evit-[避ける] + able[可能] → 避けることが不可能な",
+    "related_words": ["inevitably"],
+    "examples": [
+      {
+        "en": "accept an inevitable result",
+        "ja": "避けられない結果を受け入れる"
+      }
+    ]
+  },
+  {
+    "id": 1371,
+    "word": "tense",
+    "phonetic": "[téns]",
+    "cefr": "B1",
+    "meanings": [
+      {
+        "part_of_speech": "adjective",
+        "definition": "①張り詰めた、緊張した"
+      },
+      {
+        "part_of_speech": "noun",
+        "definition": "②(文法の) 時制"
+      }
+    ],
+    "notes": "語源：tens-[伸びる] → 引っ張られてピンと張り詰めた状態",
+    "related_words": ["tension"],
+    "examples": [
+      {
+        "en": "a tense situation in the meeting room",
+        "ja": "会議室の緊迫した空気"
+      },
+      {
+        "en": "learn the present tense",
+        "ja": "現在時制を学ぶ"
+      }
+    ]
+  },
+  {
+    "id": 1372,
+    "word": "calm",
+    "phonetic": "[kɑːm]",
+    "cefr": "B1",
+    "meanings": [
+      {
+        "part_of_speech": "adjective",
+        "definition": "①落ち着いた、穏やかな"
+      },
+      {
+        "part_of_speech": "verb",
+        "definition": "②落ち着く、〜を静める"
+      }
+    ],
+    "notes": "風や波がなく静かで穏やかな状態から、気持ちの静まりを指す。",
+    "related_words": ["calm down"],
+    "examples": [
+      {
+        "en": "stay calm during an emergency",
+        "ja": "緊急時においても落ち着いている"
+      },
+      {
+        "en": "Try to calm down before speaking.",
+        "ja": "話す前に気持ちを落ち着かせなさい。"
+      }
+    ]
+  },
+  {
+    "id": 1373,
+    "word": "awkward",
+    "phonetic": "[ɔ́ːkwərd]",
+    "cefr": "B1",
+    "meanings": [
+      {
+        "part_of_speech": "adjective",
+        "definition": "ぎこちない、不器用な、気まずい"
+      }
+    ],
+    "notes": "語源：awk-[反対の方向へ] + ward[向き] → 本来の方向からずれて滑らかでない状態",
+    "related_words": [],
+    "examples": [
+      {
+        "en": "the awkward movements of a new robot",
+        "ja": "新しいロボットの不自然でぎこちない動き"
+      }
+    ]
+  },
+  {
+    "id": 1374,
+    "word": "method",
+    "phonetic": "[méθəd]",
+    "cefr": "A2",
+    "meanings": [
+      {
+        "part_of_speech": "noun",
+        "definition": "方法、方式、手順"
+      }
+    ],
+    "notes": "way よりも論理的・体系的に整理された順序ややり方を意味する。",
+    "related_words": ["methodology"],
+    "examples": [
+      {
+        "en": "an effective method for reducing stress",
+        "ja": "ストレスを緩和するための効果的な方法"
+      }
+    ]
+  },
+  {
+    "id": 1375,
+    "word": "medium",
+    "phonetic": "[míːdiəm]",
+    "cefr": "B1",
+    "meanings": [
+      {
+        "part_of_speech": "noun",
+        "definition": "①(情報伝達の) 媒介、手段"
+      },
+      {
+        "part_of_speech": "adjective",
+        "definition": "②中間の"
+      }
+    ],
+    "notes": "何かと何かの間に立つものを表す。複数形は media（マスメディアの語源）。",
+    "related_words": ["media", "mass media"],
+    "examples": [
+      {
+        "en": "information delivered through mass media",
+        "ja": "マスメディアを通じて届けられる情報"
+      },
+      {
+        "en": "cook the meat over medium heat",
+        "ja": "肉を中火で調理する"
+      }
+    ]
   }
 ]
