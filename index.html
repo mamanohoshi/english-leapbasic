@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>英単語マスター</title>
     <style>
@@ -192,6 +193,193 @@
         }
     </style>
 </head>
+<script>
+// ★自身の Raw URL に差し替え済
+const JSON_URL = 'https://mamanohoshi.github.io/english-leapbasic/main/words.json';
+
+let wordBank = {};
+let currentQuestions = [];
+let currentIndex = 0;
+let score = 0;
+let currentMode = '';
+
+// ページ読み込み時に GitHub から JSON を自動取得する
+window.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const response = await fetch(JSON_URL);
+        if (!response.ok) throw new Error('ネットワークエラー');
+        wordBank = await response.json();
+        
+        // 単元選択セレクトボックスを JSON データに基づいて動的生成
+        const selectEl = document.getElementById('unit-select');
+        selectEl.innerHTML = ''; // 初期選択肢をクリア
+        
+        Object.keys(wordBank).forEach(unitKey => {
+            const opt = document.createElement('option');
+            opt.value = unitKey;
+            opt.innerText = unitKey; // 例: PassVocab_Part1
+            selectEl.appendChild(opt);
+        });
+    } catch (error) {
+        alert('単語データの読み込みに失敗しました。URLまたはJSONの記述を確認してください。');
+        console.error(error);
+    }
+});
+
+function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
+}
+
+function showSetup() {
+    document.getElementById('screen-setup').classList.remove('is-hidden');
+    document.getElementById('screen-quiz').classList.add('is-hidden');
+    document.getElementById('screen-result').classList.add('is-hidden');
+}
+
+function confirmAbort() {
+    if (confirm("学習を中断してトップ画面に戻りますか？")) {
+        showSetup();
+    }
+}
+
+function startQuiz(mode) {
+    currentMode = mode;
+    const selectedUnit = document.getElementById('unit-select').value;
+    
+    if (!wordBank[selectedUnit] || wordBank[selectedUnit].length === 0) {
+        alert('選択された単元のデータが存在しません。');
+        return;
+    }
+
+    currentQuestions = shuffle([...wordBank[selectedUnit]]).slice(0, 10);
+    currentIndex = 0;
+    score = 0;
+
+    document.getElementById('screen-setup').classList.add('is-hidden');
+    document.getElementById('screen-quiz').classList.remove('is-hidden');
+
+    loadQuestion();
+}
+
+function loadQuestion() {
+    document.getElementById('feedback-area').classList.add('is-hidden');
+    
+    const q = currentQuestions[currentIndex];
+    document.getElementById('quiz-progress').innerText = `${currentIndex + 1} / ${currentQuestions.length}`;
+
+    if (currentMode === 'choice') {
+        document.getElementById('choice-area').classList.remove('is-hidden');
+        document.getElementById('input-area').classList.add('is-hidden');
+        document.getElementById('question-text').innerText = q.en;
+        
+        const allWords = Object.values(wordBank).flat();
+        const otherJps = allWords.filter(item => item.jp !== q.jp).map(item => item.jp);
+        const wrongChoices = shuffle(otherJps).slice(0, 3);
+        
+        const options = shuffle([q.jp, ...wrongChoices]);
+        for (let i = 0; i < 4; i++) {
+            const btn = document.getElementById(`opt${i}`);
+            btn.innerText = options[i] || "---";
+            btn.disabled = false;
+            btn.className = "btn btn-option";
+            btn.dataset.correct = (options[i] === q.jp);
+        }
+    } else {
+        document.getElementById('choice-area').classList.add('is-hidden');
+        document.getElementById('input-area').classList.remove('is-hidden');
+        document.getElementById('submit-input-btn').classList.remove('is-hidden');
+        document.getElementById('question-text').innerText = q.jp;
+        
+        const hint = q.en.split(' ').map(word => {
+            return word[0] + '_'.repeat(word.length - 1);
+        }).join(' ');
+        
+        document.getElementById('hint-text').innerText = hint;
+        document.getElementById('user-input').value = '';
+        document.getElementById('user-input').disabled = false;
+    }
+}
+
+function showFeedback(isCorrect, answerText) {
+    const feedbackArea = document.getElementById('feedback-area');
+    const feedbackText = document.getElementById('feedback-text');
+    
+    feedbackArea.classList.remove('is-hidden');
+    
+    if (isCorrect) {
+        score++;
+        feedbackArea.className = "feedback-area correct";
+        feedbackText.innerText = "⭕ 正解！";
+    } else {
+        feedbackArea.className = "feedback-area incorrect";
+        feedbackText.innerText = `❌ 残念...\n\n正解： ${answerText}`;
+    }
+}
+
+function checkChoice(selectedIndex) {
+    const selectedBtn = document.getElementById(`opt${selectedIndex}`);
+    const isCorrect = selectedBtn.dataset.correct === "true";
+    const q = currentQuestions[currentIndex];
+    
+    for (let i = 0; i < 4; i++) {
+        const btn = document.getElementById(`opt${i}`);
+        btn.disabled = true;
+        
+        btn.classList.add('disabled-option');
+        
+        if (btn.dataset.correct === "true") {
+            btn.classList.remove('disabled-option');
+            btn.classList.add('correct-choice');
+        } 
+        else if (i === selectedIndex && !isCorrect) {
+            btn.classList.remove('disabled-option');
+            btn.classList.add('wrong-choice');
+        }
+    }
+    
+    showFeedback(isCorrect, q.jp);
+}
+
+function checkInput() {
+    const userAns = document.getElementById('user-input').value.trim().toLowerCase();
+    const targetAns = currentQuestions[currentIndex].en.toLowerCase();
+    const isCorrect = (userAns === targetAns);
+    
+    document.getElementById('user-input').disabled = true;
+    document.getElementById('submit-input-btn').classList.add('is-hidden');
+    
+    showFeedback(isCorrect, currentQuestions[currentIndex].en);
+}
+
+function nextQuestion() {
+    currentIndex++;
+    if (currentIndex < currentQuestions.length) {
+        loadQuestion();
+    } else {
+        showResult();
+    }
+}
+
+function showResult() {
+    document.getElementById('screen-quiz').classList.add('is-hidden');
+    document.getElementById('screen-result').classList.remove('is-hidden');
+    
+    document.getElementById('score-text').innerText = `${score} / ${currentQuestions.length} 問正解`;
+
+    let cheer = "";
+    if (score === 10) {
+        cheer = "パーフェクト！🎉\n電車のスキマ時間で天才になっちゃうね！";
+    } else if (score >= 7) {
+        cheer = "すごい！高得点！👏\nこの調子でどんどん復習しよう！";
+    } else if (score >= 4) {
+        cheer = "ナイストライ！👍\n繰り返しやれば絶対に覚えられるよ！";
+    } else {
+        cheer = "ファイト！継続が一番大事！💪\nもう一回チャレンジしてみよう！";
+    }
+    document.getElementById('cheer-message').innerText = cheer;
+}
+</script>
+    ★★★
 <body>
 
 <div class="container">
