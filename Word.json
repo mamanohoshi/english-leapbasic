@@ -450,7 +450,7 @@
     "example_en": "the awkward movements of a new robot",
     "example_ja": "新しいロボットの不自然でぎこちない動き"
   },
-  {
+{
     "id": 138,
     "word": "method",
     "phonetic": "[méθəd]",
@@ -471,7 +471,7 @@
     "notes": "何かと何かの間に立つものを表す。複数形は media（マスメディアの語源）。",
     "example_en": "information delivered through mass media",
     "example_ja": "マスメディアを通じて届けられる情報"
-  }
+  },
   {
     "id": 140,
     "word": "distant",
@@ -570,5 +570,5 @@
     "notes": "「家の中の、家庭の」という意味から転じて「国内の」を意味する。",
     "example_en": "The airport handles both domestic and international flights.",
     "example_ja": "その空港は国内線と国際線の両方を扱っている。"
-  },
+  }
 ]
