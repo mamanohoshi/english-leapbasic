@@ -472,4 +472,105 @@
     "example_en": "information delivered through mass media",
     "example_ja": "マスメディアを通じて届けられる情報"
   }
+  [
+  {
+    "id": 140,
+    "word": "distant",
+    "phonetic": "[dístənt]",
+    "cefr": "B1",
+    "part_of_speech": "adjective",
+    "meaning": "遠い",
+    "notes": "「（地理的に）遠い」から「（時間、関係が）遠い」まで幅広く使われる。",
+    "example_en": "She dreams of traveling to a distant country.",
+    "example_ja": "彼女は遠い国へ旅行することを夢見ている。"
+  },
+  {
+    "id": 141,
+    "word": "remote",
+    "phonetic": "[rimóut]",
+    "cefr": "A2",
+    "part_of_speech": "adjective",
+    "meaning": "遠い",
+    "notes": "人里離れたへんぴな場所や、時間・関係などが遠いことを表す。",
+    "example_en": "They live in a remote mountain village.",
+    "example_ja": "彼らは人里離れた山村に住んでいる。"
+  },
+  {
+    "id": 1360,
+    "word": "domestic",
+    "phonetic": "[dəméstik]",
+    "cefr": "B2",
+    "part_of_speech": "adjective",
+    "meaning": "①国内の ②家庭内の",
+    "notes": "「家の中の、家庭の」という意味から転じて「国内の」を意味する。",
+    "example_en": "The airport handles both domestic and international flights.",
+    "example_ja": "その空港は国内線と国際線の両方を扱っている。"
+  },
+  {
+    "id": 142,
+    "word": "locate",
+    "phonetic": "[lóukeit]",
+    "cefr": "B1",
+    "part_of_speech": "verb",
+    "meaning": "〜に位置している",
+    "notes": "be located in/at などの形で「〜に位置している（ある）」を表す硬い表現。",
+    "example_en": "The new office is located in the center of the city.",
+    "example_ja": "新しいオフィスは市の中央に位置している。"
+  },
+  {
+    "id": 143,
+    "word": "occupy",
+    "phonetic": "[ákjupài]",
+    "cefr": "B1",
+    "part_of_speech": "verb",
+    "meaning": "〜を占める",
+    "notes": "時間、場所、地位などを占める・占有することを表す。",
+    "example_en": "Reading occupies most of his free time.",
+    "example_ja": "読書が彼の自由時間の大部分を占めている。"
+  },
+  {
+    "id": 144,
+    "word": "surround",
+    "phonetic": "[səráund]",
+    "cefr": "B1",
+    "part_of_speech": "verb",
+    "meaning": "〜を取り囲む",
+    "notes": "物理的に取り囲むことを表す。歓談などで「〜を囲む」は sit around を用いることが多い。",
+    "example_en": "A tall fence surrounds the garden.",
+    "example_ja": "高いフェンスが庭を取り囲んでいる。"
+  },
+  {
+    "id": 145,
+    "word": "occasion",
+    "phonetic": "[əkéiʒən]",
+    "cefr": "B1",
+    "part_of_speech": "noun",
+    "meaning": "場合",
+    "notes": "ある特別な時間や行事、特定の機会・場合を表す。",
+    "example_en": "He wore a suit for the special occasion.",
+    "example_ja": "彼はその特別な場合（行事）のためにスーツを着た。"
+  },
+  {
+    "id": 146,
+    "word": "incident",
+    "phonetic": "[ínsədənt]",
+    "cefr": "B1",
+    "part_of_speech": "noun",
+    "meaning": "出来事",
+    "notes": "主に不快な出来事や、深刻・暴力に伴う事件などを指す。",
+    "example_en": "The police are investigating the incident.",
+    "example_ja": "警察はその出来事（事件）を調査している。"
+  },
+  {
+    "id": 147,
+    "word": "circumstance",
+    "phonetic": "[sə́ːrkəmstæ̀ns]",
+    "cefr": "B2",
+    "part_of_speech": "noun",
+    "meaning": "状況、事情",
+    "notes": "通例複数形（circumstances）で、周囲の特定の状況や事情を表す。",
+    "example_en": "Under these circumstances, we have to cancel the event.",
+    "example_ja": "このような状況のもとでは、イベントを中止しなければならない。"
+  }
+]
 ]
