@@ -286,7 +286,7 @@
     "example_ja": "海洋に浮かぶ遠くの島"
   },
   {
-    "id": 1359,
+    "id": 123,
     "word": "remote",
     "phonetic": "[rimóut]",
     "cefr": "A2",
@@ -297,7 +297,7 @@
     "example_ja": "へんぴな村に暮らす"
   },
   {
-    "id": 1360,
+    "id": 124,
     "word": "domestic",
     "phonetic": "[dəméstik]",
     "cefr": "B2",
@@ -308,7 +308,7 @@
     "example_ja": "国内線の運航スケジュール"
   },
   {
-    "id": 1361,
+    "id": 125,
     "word": "locate",
     "phonetic": "[lóukeit]",
     "cefr": "B1",
@@ -319,7 +319,7 @@
     "example_ja": "私の職場は東京に位置している。"
   },
   {
-    "id": 1362,
+    "id": 126,
     "word": "occupy",
     "phonetic": "[ɑ́kjupai]",
     "cefr": "B1",
@@ -330,7 +330,7 @@
     "example_ja": "電車で2人分の座席を占有する"
   },
   {
-    "id": 1363,
+    "id": 127,
     "word": "surround",
     "phonetic": "[səráund]",
     "cefr": "B1",
@@ -341,7 +341,7 @@
     "example_ja": "深い森に囲まれた湖"
   },
   {
-    "id": 1364,
+    "id": 128,
     "word": "occasion",
     "phonetic": "[əkéiʒən]",
     "cefr": "B1",
@@ -352,7 +352,7 @@
     "example_ja": "このような特別な機会にはフォーマルな服を着る"
   },
   {
-    "id": 1365,
+    "id": 129,
     "word": "incident",
     "phonetic": "[ínsədənt]",
     "cefr": "B1",
@@ -363,7 +363,7 @@
     "example_ja": "暴力事件について調査する"
   },
   {
-    "id": 1366,
+    "id": 130,
     "word": "circumstance",
     "phonetic": "[sə́ːrkəmstæns]",
     "cefr": "B2",
@@ -374,7 +374,7 @@
     "example_ja": "現在の置かれた状況下において"
   },
   {
-    "id": 1367,
+    "id": 131,
     "word": "secure",
     "phonetic": "[sikjúər]",
     "cefr": "B1",
@@ -385,7 +385,7 @@
     "example_ja": "将来について安心感を持つ"
   },
   {
-    "id": 1368,
+    "id": 132,
     "word": "rare",
     "phonetic": "[réər]",
     "cefr": "B1",
@@ -396,7 +396,7 @@
     "example_ja": "希少な切手やコインを収集する"
   },
   {
-    "id": 1369,
+    "id": 133,
     "word": "urgent",
     "phonetic": "[ə́ːrdʒənt]",
     "cefr": "B1",
@@ -407,7 +407,7 @@
     "example_ja": "資金援助に対する緊急の必要性"
   },
   {
-    "id": 1370,
+    "id": 134,
     "word": "inevitable",
     "phonetic": "[inévətəbl]",
     "cefr": "B1",
@@ -418,7 +418,7 @@
     "example_ja": "避けられない結果を受け入れる"
   },
   {
-    "id": 1371,
+    "id": 135,
     "word": "tense",
     "phonetic": "[téns]",
     "cefr": "B1",
@@ -429,7 +429,7 @@
     "example_ja": "会議室の緊迫した空気"
   },
   {
-    "id": 1372,
+    "id": 136,
     "word": "calm",
     "phonetic": "[kɑːm]",
     "cefr": "B1",
@@ -440,7 +440,7 @@
     "example_ja": "緊急時においても落ち着いている"
   },
   {
-    "id": 1373,
+    "id": 137,
     "word": "awkward",
     "phonetic": "[ɔ́ːkwərd]",
     "cefr": "B1",
@@ -451,7 +451,7 @@
     "example_ja": "新しいロボットの不自然でぎこちない動き"
   },
   {
-    "id": 1374,
+    "id": 138,
     "word": "method",
     "phonetic": "[méθəd]",
     "cefr": "A2",
@@ -462,7 +462,7 @@
     "example_ja": "ストレスを緩和するための効果的な方法"
   },
   {
-    "id": 1375,
+    "id": 139,
     "word": "medium",
     "phonetic": "[míːdiəm]",
     "cefr": "B1",
