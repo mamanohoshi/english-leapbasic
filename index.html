@@ -64,10 +64,10 @@
             box-shadow: 0 6px 16px rgba(30, 41, 59, 0.2);
         }
 
-        /* 4択ボタン（グレー背景：#E2E8F0 / 文字色：濃いチャコール #334155） */
+        /* 4択ボタン */
         .btn-option {
             background: #E2E8F0; 
-            color: #334155; /* チャコール */
+            color: #334155;
             text-align: left;
             padding: 18px;
             font-size: 18px;
@@ -75,9 +75,11 @@
             border: none;
             border-radius: 16px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             line-height: 1.4;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+            box-sizing: border-box;
         }
         .btn-option:active {
             transform: scale(0.98);
@@ -91,7 +93,7 @@
             border: none !important;
         }
 
-        /* 正解のボタン（背景色は変えず緑枠のみ追加） */
+        /* 正解のボタン */
         .btn-option.correct-choice {
             background: #E2E8F0 !important;
             color: #334155 !important;
@@ -99,7 +101,7 @@
             box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2) !important;
         }
 
-        /* 間違えたボタン（背景色は変えず赤枠のみ追加） */
+        /* 間違えたボタン */
         .btn-option.wrong-choice {
             background: #E2E8F0 !important;
             color: #334155 !important;
@@ -107,7 +109,7 @@
             box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2) !important;
         }
 
-        /* ヘッダー周り（進捗と中断ボタン） */
+        /* ヘッダー周り */
         .quiz-header {
             display: flex;
             justify-content: space-between;
@@ -153,7 +155,13 @@
             text-align: center;
         }
         select {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            border-radius: 12px;
             border: 2px solid #E2E8F0 !important;
+            margin-bottom: 24px;
+            background-color: #fff;
         }
         .progress {
             font-size: 15px;
@@ -175,17 +183,18 @@
             padding: 15px;
             border-radius: 16px;
             margin-top: 10px;
+            margin-bottom: 15px;
         }
         .correct {
             background-color: #F0FDF4;
             color: #15803D;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: bold;
         }
         .incorrect {
             background-color: #FEF2F2;
             color: #B91C1C;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
         }
         .is-hidden {
@@ -193,8 +202,64 @@
         }
     </style>
 </head>
+<body>
+
+<div class="container">
+    <!-- 1. 設定・学習開始画面 -->
+    <div id="screen-setup">
+        <h1>英単語マスター</h1>
+        <p style="text-align: center; color: #64748B; margin-bottom: 20px;">学習する単元を選んでください</p>
+        
+        <select id="unit-select">
+            <option value="">読み込み中...</option>
+        </select>
+
+        <button class="btn btn-primary" onclick="startQuiz('choice')">4択クイズを始める</button>
+        <button class="btn btn-purple" onclick="startQuiz('input')">スペル入力で覚える</button>
+    </div>
+
+    <!-- 2. クイズ画面 -->
+    <div id="screen-quiz" class="is-hidden">
+        <div>
+            <div class="quiz-header">
+                <span class="progress" id="quiz-progress">1 / 10</span>
+                <button class="btn-abort" onclick="confirmAbort()">中断</button>
+            </div>
+            <div class="word-display" id="question-text">---</div>
+            <div class="hint-display" id="hint-text"></div>
+        </div>
+
+        <!-- 4択回答エリア -->
+        <div id="choice-area">
+            <button class="btn-option" id="opt0" onclick="checkChoice(0)"></button>
+            <button class="btn-option" id="opt1" onclick="checkChoice(1)"></button>
+            <button class="btn-option" id="opt2" onclick="checkChoice(2)"></button>
+            <button class="btn-option" id="opt3" onclick="checkChoice(3)"></button>
+        </div>
+
+        <!-- キーボード入力回答エリア -->
+        <div id="input-area" class="is-hidden">
+            <input type="text" id="user-input" placeholder="英単語を入力" autocomplete="off" autocapitalize="none">
+            <button class="btn btn-dark" id="submit-input-btn" onclick="checkInput()">回答する</button>
+        </div>
+
+        <!-- 正解/不正解フィードバック -->
+        <div id="feedback-area" class="feedback-area is-hidden">
+            <div id="feedback-text"></div>
+            <button class="btn btn-dark" style="margin-top: 15px; margin-bottom: 0;" onclick="nextQuestion()">次へ進む</button>
+        </div>
+    </div>
+
+    <!-- 3. 結果画面 -->
+    <div id="screen-result" class="is-hidden">
+        <h2>学習結果</h2>
+        <div class="word-display" id="score-text">0 / 10 問正解</div>
+        <div class="result-msg" id="cheer-message"></div>
+        <button class="btn btn-primary" onclick="showSetup()">もう一度挑戦する</button>
+    </div>
+</div>
+
 <script>
-// ★自身の Raw URL に差し替え済
 const JSON_URL = 'https://raw.githubusercontent.com/mamanohoshi/english-leapbasic/main/Word.json';
 
 let wordBank = {};
@@ -203,21 +268,26 @@ let currentIndex = 0;
 let score = 0;
 let currentMode = '';
 
-// ページ読み込み時に GitHub から JSON を自動取得する
 window.addEventListener('DOMContentLoaded', async () => {
     try {
         const response = await fetch(JSON_URL);
         if (!response.ok) throw new Error('ネットワークエラー');
-        wordBank = await response.json();
+        const data = await response.json();
         
-        // 単元選択セレクトボックスを JSON データに基づいて動的生成
+        // JSONが配列形式かオブジェクト形式かに対応
+        if (Array.isArray(data)) {
+            wordBank = { "すべての単語": data };
+        } else {
+            wordBank = data;
+        }
+
         const selectEl = document.getElementById('unit-select');
-        selectEl.innerHTML = ''; // 初期選択肢をクリア
+        selectEl.innerHTML = '';
         
         Object.keys(wordBank).forEach(unitKey => {
             const opt = document.createElement('option');
             opt.value = unitKey;
-            opt.innerText = unitKey; // 例: PassVocab_Part1
+            opt.innerText = unitKey;
             selectEl.appendChild(opt);
         });
     } catch (error) {
@@ -263,34 +333,38 @@ function startQuiz(mode) {
 
 function loadQuestion() {
     document.getElementById('feedback-area').classList.add('is-hidden');
+    document.getElementById('hint-text').innerText = '';
     
     const q = currentQuestions[currentIndex];
+    const wordText = q.word || q.en;
+    const meaningText = q.meaning || q.jp;
+
     document.getElementById('quiz-progress').innerText = `${currentIndex + 1} / ${currentQuestions.length}`;
 
     if (currentMode === 'choice') {
         document.getElementById('choice-area').classList.remove('is-hidden');
         document.getElementById('input-area').classList.add('is-hidden');
-        document.getElementById('question-text').innerText = q.en;
+        document.getElementById('question-text').innerText = wordText;
         
         const allWords = Object.values(wordBank).flat();
-        const otherJps = allWords.filter(item => item.jp !== q.jp).map(item => item.jp);
+        const otherJps = allWords.filter(item => (item.meaning || item.jp) !== meaningText).map(item => item.meaning || item.jp);
         const wrongChoices = shuffle(otherJps).slice(0, 3);
         
-        const options = shuffle([q.jp, ...wrongChoices]);
+        const options = shuffle([meaningText, ...wrongChoices]);
         for (let i = 0; i < 4; i++) {
             const btn = document.getElementById(`opt${i}`);
             btn.innerText = options[i] || "---";
             btn.disabled = false;
-            btn.className = "btn btn-option";
-            btn.dataset.correct = (options[i] === q.jp);
+            btn.className = "btn-option";
+            btn.dataset.correct = (options[i] === meaningText);
         }
     } else {
         document.getElementById('choice-area').classList.add('is-hidden');
         document.getElementById('input-area').classList.remove('is-hidden');
         document.getElementById('submit-input-btn').classList.remove('is-hidden');
-        document.getElementById('question-text').innerText = q.jp;
+        document.getElementById('question-text').innerText = meaningText;
         
-        const hint = q.en.split(' ').map(word => {
+        const hint = wordText.split(' ').map(word => {
             return word[0] + '_'.repeat(word.length - 1);
         }).join(' ');
         
@@ -320,6 +394,7 @@ function checkChoice(selectedIndex) {
     const selectedBtn = document.getElementById(`opt${selectedIndex}`);
     const isCorrect = selectedBtn.dataset.correct === "true";
     const q = currentQuestions[currentIndex];
+    const meaningText = q.meaning || q.jp;
     
     for (let i = 0; i < 4; i++) {
         const btn = document.getElementById(`opt${i}`);
@@ -337,18 +412,19 @@ function checkChoice(selectedIndex) {
         }
     }
     
-    showFeedback(isCorrect, q.jp);
+    showFeedback(isCorrect, meaningText);
 }
 
 function checkInput() {
     const userAns = document.getElementById('user-input').value.trim().toLowerCase();
-    const targetAns = currentQuestions[currentIndex].en.toLowerCase();
+    const q = currentQuestions[currentIndex];
+    const targetAns = (q.word || q.en).toLowerCase();
     const isCorrect = (userAns === targetAns);
     
     document.getElementById('user-input').disabled = true;
     document.getElementById('submit-input-btn').classList.add('is-hidden');
     
-    showFeedback(isCorrect, currentQuestions[currentIndex].en);
+    showFeedback(isCorrect, q.word || q.en);
 }
 
 function nextQuestion() {
