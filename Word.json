@@ -472,7 +472,6 @@
     "example_en": "information delivered through mass media",
     "example_ja": "マスメディアを通じて届けられる情報"
   }
-  [
   {
     "id": 140,
     "word": "distant",
@@ -494,17 +493,6 @@
     "notes": "人里離れたへんぴな場所や、時間・関係などが遠いことを表す。",
     "example_en": "They live in a remote mountain village.",
     "example_ja": "彼らは人里離れた山村に住んでいる。"
-  },
-  {
-    "id": 1360,
-    "word": "domestic",
-    "phonetic": "[dəméstik]",
-    "cefr": "B2",
-    "part_of_speech": "adjective",
-    "meaning": "①国内の ②家庭内の",
-    "notes": "「家の中の、家庭の」という意味から転じて「国内の」を意味する。",
-    "example_en": "The airport handles both domestic and international flights.",
-    "example_ja": "その空港は国内線と国際線の両方を扱っている。"
   },
   {
     "id": 142,
@@ -572,4 +560,15 @@
     "example_en": "Under these circumstances, we have to cancel the event.",
     "example_ja": "このような状況のもとでは、イベントを中止しなければならない。"
   }
+  {
+    "id": 148,
+    "word": "domestic",
+    "phonetic": "[dəméstik]",
+    "cefr": "B2",
+    "part_of_speech": "adjective",
+    "meaning": "①国内の ②家庭内の",
+    "notes": "「家の中の、家庭の」という意味から転じて「国内の」を意味する。",
+    "example_en": "The airport handles both domestic and international flights.",
+    "example_ja": "その空港は国内線と国際線の両方を扱っている。"
+  },
 ]
