@@ -275,106 +275,7 @@
     "example_ja": "すべての条件が承認されない限り、契約を締結することはできません。"
   },
   {
-    "id": 1358,
-    "word": "distant",
-    "phonetic": "[dístənt]",
-    "cefr": "B1",
-    "part_of_speech": "adjective",
-    "meaning": "遠い、離れた",
-    "notes": "地理的な距離だけでなく時間や関係性の遠さにも用いる。語源：dis-[離れて] + stant[立つ]",
-    "example_en": "a distant island in the ocean",
-    "example_ja": "海洋に浮かぶ遠くの島"
-  },
-  {
-    "id": 123,
-    "word": "remote",
-    "phonetic": "[rimóut]",
-    "cefr": "A2",
-    "part_of_speech": "adjective",
-    "meaning": "人里離れた、遠隔の",
-    "notes": "中心地から離れて孤立しているニュアンス。リモートワークやリモコンの語源。",
-    "example_en": "live in a remote village",
-    "example_ja": "へんぴな村に暮らす"
-  },
-  {
-    "id": 124,
-    "word": "domestic",
-    "phonetic": "[dəméstik]",
-    "cefr": "B2",
-    "part_of_speech": "adjective",
-    "meaning": "①国内の ②家庭内の",
-    "notes": "語源：dome[家]。家の中に関する事柄から発展して国家の内部（国内）を表す。",
-    "example_en": "a domestic flight schedule",
-    "example_ja": "国内線の運航スケジュール"
-  },
-  {
-    "id": 125,
-    "word": "locate",
-    "phonetic": "[lóukeit]",
-    "cefr": "B1",
-    "part_of_speech": "verb",
-    "meaning": "(be located)〜に位置している、存在する",
-    "notes": "be動詞単体よりも位置や存在を正確に表す表現。語源：loc-[場所] + -ate",
-    "example_en": "My office is located in Tokyo.",
-    "example_ja": "私の職場は東京に位置している。"
-  },
-  {
     "id": 126,
-    "word": "occupy",
-    "phonetic": "[ɑ́kjupai]",
-    "cefr": "B1",
-    "part_of_speech": "verb",
-    "meaning": "〜を占める、占有する",
-    "notes": "時間、場所、空間、あるいは地位などを占める際に使用する。",
-    "example_en": "occupy two seats on the train",
-    "example_ja": "電車で2人分の座席を占有する"
-  },
-  {
-    "id": 127,
-    "word": "surround",
-    "phonetic": "[səráund]",
-    "cefr": "B1",
-    "part_of_speech": "verb",
-    "meaning": "〜を取り囲む、包囲する",
-    "notes": "対象を物理的に周囲から囲む状態を表す。",
-    "example_en": "a lake surrounded by forest",
-    "example_ja": "深い森に囲まれた湖"
-  },
-  {
-    "id": 128,
-    "word": "occasion",
-    "phonetic": "[əkéiʒən]",
-    "cefr": "B1",
-    "part_of_speech": "noun",
-    "meaning": "特定の機会、場合、行事",
-    "notes": "特定の出来事や特別な機会・特定のタイミングを指す。",
-    "example_en": "wear formal clothes on this occasion",
-    "example_ja": "このような特別な機会にはフォーマルな服を着る"
-  },
-  {
-    "id": 129,
-    "word": "incident",
-    "phonetic": "[ínsədənt]",
-    "cefr": "B1",
-    "part_of_speech": "noun",
-    "meaning": "出来事、思わぬ事件",
-    "notes": "主に思いがけない出来事や偶発的な不快・深刻な事件を指す。",
-    "example_en": "investigate a violent incident",
-    "example_ja": "暴力事件について調査する"
-  },
-  {
-    "id": 130,
-    "word": "circumstance",
-    "phonetic": "[sə́ːrkəmstæns]",
-    "cefr": "B2",
-    "part_of_speech": "noun",
-    "meaning": "(通例複数形で) 状況、事情",
-    "notes": "語源：circum-[周囲の円] + stance[立つ] → 周囲を取り巻く環境・情勢",
-    "example_en": "under the current circumstances",
-    "example_ja": "現在の置かれた状況下において"
-  },
-  {
-    "id": 131,
     "word": "secure",
     "phonetic": "[sikjúər]",
     "cefr": "B1",
@@ -385,7 +286,7 @@
     "example_ja": "将来について安心感を持つ"
   },
   {
-    "id": 132,
+    "id": 127,
     "word": "rare",
     "phonetic": "[réər]",
     "cefr": "B1",
@@ -396,7 +297,7 @@
     "example_ja": "希少な切手やコインを収集する"
   },
   {
-    "id": 133,
+    "id": 128,
     "word": "urgent",
     "phonetic": "[ə́ːrdʒənt]",
     "cefr": "B1",
@@ -407,7 +308,7 @@
     "example_ja": "資金援助に対する緊急の必要性"
   },
   {
-    "id": 134,
+    "id": 129,
     "word": "inevitable",
     "phonetic": "[inévətəbl]",
     "cefr": "B1",
@@ -418,7 +319,7 @@
     "example_ja": "避けられない結果を受け入れる"
   },
   {
-    "id": 135,
+    "id": 130,
     "word": "tense",
     "phonetic": "[téns]",
     "cefr": "B1",
@@ -429,7 +330,7 @@
     "example_ja": "会議室の緊迫した空気"
   },
   {
-    "id": 136,
+    "id": 131,
     "word": "calm",
     "phonetic": "[kɑːm]",
     "cefr": "B1",
@@ -440,7 +341,7 @@
     "example_ja": "緊急時においても落ち着いている"
   },
   {
-    "id": 137,
+    "id": 132,
     "word": "awkward",
     "phonetic": "[ɔ́ːkwərd]",
     "cefr": "B1",
@@ -450,8 +351,8 @@
     "example_en": "the awkward movements of a new robot",
     "example_ja": "新しいロボットの不自然でぎこちない動き"
   },
-{
-    "id": 138,
+  {
+    "id": 133,
     "word": "method",
     "phonetic": "[méθəd]",
     "cefr": "A2",
@@ -462,7 +363,7 @@
     "example_ja": "ストレスを緩和するための効果的な方法"
   },
   {
-    "id": 139,
+    "id": 134,
     "word": "medium",
     "phonetic": "[míːdiəm]",
     "cefr": "B1",
@@ -473,7 +374,7 @@
     "example_ja": "マスメディアを通じて届けられる情報"
   },
   {
-    "id": 140,
+    "id": 135,
     "word": "distant",
     "phonetic": "[dístənt]",
     "cefr": "B1",
@@ -484,7 +385,7 @@
     "example_ja": "彼女は遠い国へ旅行することを夢見ている。"
   },
   {
-    "id": 141,
+    "id": 136,
     "word": "remote",
     "phonetic": "[rimóut]",
     "cefr": "A2",
@@ -495,7 +396,7 @@
     "example_ja": "彼らは人里離れた山村に住んでいる。"
   },
   {
-    "id": 142,
+    "id": 137,
     "word": "locate",
     "phonetic": "[lóukeit]",
     "cefr": "B1",
@@ -506,7 +407,7 @@
     "example_ja": "新しいオフィスは市の中央に位置している。"
   },
   {
-    "id": 143,
+    "id": 138,
     "word": "occupy",
     "phonetic": "[ákjupài]",
     "cefr": "B1",
@@ -517,7 +418,7 @@
     "example_ja": "読書が彼の自由時間の大部分を占めている。"
   },
   {
-    "id": 144,
+    "id": 139,
     "word": "surround",
     "phonetic": "[səráund]",
     "cefr": "B1",
@@ -528,7 +429,7 @@
     "example_ja": "高いフェンスが庭を取り囲んでいる。"
   },
   {
-    "id": 145,
+    "id": 140,
     "word": "occasion",
     "phonetic": "[əkéiʒən]",
     "cefr": "B1",
@@ -539,7 +440,7 @@
     "example_ja": "彼はその特別な場合（行事）のためにスーツを着た。"
   },
   {
-    "id": 146,
+    "id": 141,
     "word": "incident",
     "phonetic": "[ínsədənt]",
     "cefr": "B1",
@@ -550,7 +451,7 @@
     "example_ja": "警察はその出来事（事件）を調査している。"
   },
   {
-    "id": 147,
+    "id": 142,
     "word": "circumstance",
     "phonetic": "[sə́ːrkəmstæ̀ns]",
     "cefr": "B2",
@@ -561,7 +462,7 @@
     "example_ja": "このような状況のもとでは、イベントを中止しなければならない。"
   },
   {
-    "id": 148,
+    "id": 143,
     "word": "domestic",
     "phonetic": "[dəméstik]",
     "cefr": "B2",
