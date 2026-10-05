@@ -85,30 +85,33 @@
             transform: scale(0.98);
         }
 
-        /* わからないボタン */
-        .btn-unknown {
-            width: 100%;
-            margin-top: 12px;
-            padding: 12px;
-            background-color: #f8f9fa;
-            color: #6c757d;
-            border: 1px solid #ced4da;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
+/* わからないボタン（他の4択ボタンと統一感のあるデザイン） */
+    .btn-unknown {
+        width: 100%;
+        margin-top: 14px;
+        padding: 14px;
+        background-color: #E2E8F0; /* 他の選択肢と同じライトグレー */
+        color: #64748B;            /* 選択肢より少し落ち着いたスレートグレー */
+        border: none;              /* 枠線をなくす */
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 統一された影 */
+        transition: all 0.2s ease;
+    }
 
-        .btn-unknown:active {            
-            background-color: #e2e6ea;
-            color: #495057;
-        }
+    /* タップ・押下時 */
+    .btn-unknown:active {
+        background-color: #CBD5E1;
+        transform: translateY(1px);
+    }
 
-        .btn-unknown:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
+    /* 非活性時（連打防止中） */
+    .btn-unknown:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
         
         /* 解答後：未選択の選択肢 */
         .btn-option.disabled-option {
@@ -261,7 +264,7 @@
             <button class="btn-option" id="opt2" onclick="checkChoice(2)"></button>
             <button class="btn-option" id="opt3" onclick="checkChoice(3)"></button>
             
-            <!-- ★追加：わからないボタン -->
+        <!-- ★追加：わからないボタン -->
             <button class="btn-unknown" id="btn-dont-know" onclick="handleDontKnow()">わからない</button>
         </div>
 
@@ -447,29 +450,29 @@ function checkChoice(selectedIndex) {
     showFeedback(isCorrect, meaningText);
 }
 
-// ------------------------------------
 // 「わからない」ボタンが押された時の処理
-// ------------------------------------
 function handleDontKnow() {
-    // ボタンの連打防止
+    // 1. 選択肢と「わからない」ボタンを無効化（連打防止）
     const options = document.querySelectorAll('.btn-option');
     options.forEach(btn => btn.disabled = true);
-    document.getElementById('btn-dont-know').disabled = true;
+    const dontKnowBtn = document.getElementById('btn-dont-know');
+    if (dontKnowBtn) dontKnowBtn.disabled = true;
 
-    // 不正解（パス）として記録・処理
-    // ※お使いの変数名（currentQuestion, wrongListなど）に合わせて調整してください
-    const currentQ = quizQuestions[currentQuestionIndex]; 
-    
-    // フィードバック画面の表示
+    // 2. 現在の問題データを取得
+    const currentQ = currentQuestions[currentIndex];
+
+    // 3. フィードバック画面（正解）の表示設定
     const feedbackText = document.getElementById('feedback-text');
     feedbackText.innerHTML = `
         <div style="color: #ea580c; font-weight: bold; font-size: 1.1rem; margin-bottom: 8px;">パスしました</div>
         <div>正解は <strong>「${currentQ.meaning}」</strong> です</div>
     `;
 
+    // 4. 4択エリアを隠し、フィードバックエリアを表示
     document.getElementById('choice-area').classList.add('is-hidden');
     document.getElementById('feedback-area').classList.remove('is-hidden');
 }
+
 
 function checkInput() {
     const userAns = document.getElementById('user-input').value.trim().toLowerCase();
@@ -486,6 +489,10 @@ function checkInput() {
 function nextQuestion() {
     currentIndex++;
     if (currentIndex < currentQuestions.length) {
+        // 次の問題へ進むため「わからない」ボタンを有効に戻す
+        const dontKnowBtn = document.getElementById('btn-dont-know');
+        if (dontKnowBtn) dontKnowBtn.disabled = false;
+
         loadQuestion();
     } else {
         showResult();
