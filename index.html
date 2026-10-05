@@ -85,29 +85,29 @@
             transform: scale(0.98);
         }
 
-/* わからないボタン（4択ボタンのデザイン・左寄せに完全統一） */
+/* わからないボタン（選択肢と明確に区別する破線・パス風デザイン） */
     .btn-unknown {
         width: 100%;
-        box-sizing: border-box;                     /* 幅の計算基準を揃えて横位置をピッタリ一致 */
-        background: #E2E8F0;                        /* 4択ボタンと同じ色 */
-        color: #334155;                             /* 4択ボタンと同じ文字色 */
-        text-align: left;                           /* 左寄せ */
-        padding: 18px;                              /* 4択ボタンと同じ余白 */
-        font-size: 18px;                            /* 4択ボタンと同じ文字サイズ */
+        box-sizing: border-box;
+        background: #F8FAFC;                        /* 選択肢より少し明るく清潔感のある背景 */
+        color: #64748B;                             /* 落ち着いたスレートグレーで主張を抑える */
+        text-align: center;                         /* 操作ボタンらしく中央寄せ */
+        padding: 16px;
+        font-size: 16px;                            /* 選択肢(18px)よりほんの少し小さくして補助感を出す */
         font-weight: bold;
-        border: none;
-        border-radius: 16px;                        /* 4択ボタンと同じ角丸 */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04); /* 4択ボタンと同じ影 */
-        margin-top: 12px;
+        border: 2px dashed #CBD5E1;                 /* ★破線の枠線で「スキップ・パス感」を表現 */
+        border-radius: 16px;
+        box-shadow: none;                           /* 影を消して選択肢との立体感の差を出す */
+        margin-top: 20px;                           /* 4択ボタンとの間隔を少し広げて離す */
         line-height: 1.4;
         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         cursor: pointer;
     }
 
-    /* タップ・押下時（4択ボタンと同じアニメーション） */
+    /* タップ・押下時 */
     .btn-unknown:active {
         transform: scale(0.98);
-        background-color: #CBD5E1;
+        background-color: #E2E8F0;
     }
 
     /* 非活性時（連打防止中） */
@@ -261,7 +261,7 @@
             <button class="btn-option" id="opt3" onclick="checkChoice(3)"></button>
             
         <!-- ★追加：わからないボタン -->
-            <button class="btn-unknown" id="btn-dont-know" onclick="handleDontKnow()">わからない</button>
+            <button class="btn-unknown" id="btn-dont-know" onclick="handleDontKnow()">パス（わからない）</button>
         </div>
 
         <!-- キーボード入力回答エリア -->
