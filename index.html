@@ -85,6 +85,31 @@
             transform: scale(0.98);
         }
 
+        /* わからないボタン */
+        .btn-unknown {
+            width: 100%;
+            margin-top: 12px;
+            padding: 12px;
+            background-color: #f8f9fa;
+            color: #6c757d;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-unknown:active {            
+            background-color: #e2e6ea;
+            color: #495057;
+        }
+
+        .btn-unknown:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
         /* 解答後：未選択の選択肢 */
         .btn-option.disabled-option {
             background: #E2E8F0 !important;
