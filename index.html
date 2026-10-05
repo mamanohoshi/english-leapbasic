@@ -393,6 +393,10 @@ function showFeedback(isCorrect, answerText) {
     }
 }
 
+// ------------------------------------
+// 4択ボタンが押された時の判定
+// ------------------------------------
+    
 function checkChoice(selectedIndex) {
     const selectedBtn = document.getElementById(`opt${selectedIndex}`);
     const isCorrect = selectedBtn.dataset.correct === "true";
@@ -416,6 +420,30 @@ function checkChoice(selectedIndex) {
     }
     
     showFeedback(isCorrect, meaningText);
+}
+
+// ------------------------------------
+// 「わからない」ボタンが押された時の処理
+// ------------------------------------
+function handleDontKnow() {
+    // ボタンの連打防止
+    const options = document.querySelectorAll('.btn-option');
+    options.forEach(btn => btn.disabled = true);
+    document.getElementById('btn-dont-know').disabled = true;
+
+    // 不正解（パス）として記録・処理
+    // ※お使いの変数名（currentQuestion, wrongListなど）に合わせて調整してください
+    const currentQ = quizQuestions[currentQuestionIndex]; 
+    
+    // フィードバック画面の表示
+    const feedbackText = document.getElementById('feedback-text');
+    feedbackText.innerHTML = `
+        <div style="color: #ea580c; font-weight: bold; font-size: 1.1rem; margin-bottom: 8px;">パスしました</div>
+        <div>正解は <strong>「${currentQ.meaning}」</strong> です</div>
+    `;
+
+    document.getElementById('choice-area').classList.add('is-hidden');
+    document.getElementById('feedback-area').classList.remove('is-hidden');
 }
 
 function checkInput() {
