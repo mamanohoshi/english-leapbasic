@@ -85,27 +85,29 @@
             transform: scale(0.98);
         }
 
-/* わからないボタン（4択ボタンに完全に合わせたデザイン） */
+/* わからないボタン（4択ボタンのデザイン・左寄せに完全統一） */
     .btn-unknown {
         width: 100%;
-        margin-top: 12px;
-        padding: 16px;             /* 4択ボタンと同じ上下の余白 */
-        background-color: #E2E8F0; /* 4択ボタンと同じライトグレー */
-        color: #334155;            /* 4択ボタンと同じダークチャコール文字 */
-        border: none;              /* 枠線なし */
-        border-radius: 12px;       /* 4択ボタンと同じ角丸 */
-        font-size: 1.1rem;         /* 4択ボタンと同じ文字サイズ */
+        box-sizing: border-box;                     /* 幅の計算基準を揃えて横位置をピッタリ一致 */
+        background: #E2E8F0;                        /* 4択ボタンと同じ色 */
+        color: #334155;                             /* 4択ボタンと同じ文字色 */
+        text-align: left;                           /* 左寄せ */
+        padding: 18px;                              /* 4択ボタンと同じ余白 */
+        font-size: 18px;                            /* 4択ボタンと同じ文字サイズ */
         font-weight: bold;
-        text-align: center;
+        border: none;
+        border-radius: 16px;                        /* 4択ボタンと同じ角丸 */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04); /* 4択ボタンと同じ影 */
+        margin-top: 12px;
+        line-height: 1.4;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         cursor: pointer;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 4択ボタンと同じ影 */
-        transition: all 0.2s ease;
     }
 
-    /* タップ・押下時 */
+    /* タップ・押下時（4択ボタンと同じアニメーション） */
     .btn-unknown:active {
+        transform: scale(0.98);
         background-color: #CBD5E1;
-        transform: translateY(1px);
     }
 
     /* 非活性時（連打防止中） */
@@ -113,13 +115,6 @@
         opacity: 0.5;
         cursor: not-allowed;
     }
-        
-        /* 解答後：未選択の選択肢 */
-        .btn-option.disabled-option {
-            background: #E2E8F0 !important;
-            color: #334155 !important;
-            box-shadow: none !important;
-            border: none !important;
         }
 
         /* 正解のボタン */
