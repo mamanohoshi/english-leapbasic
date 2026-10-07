@@ -377,21 +377,23 @@ function startQuiz(mode) {
 
 function loadQuestion() {
     document.getElementById('feedback-area').classList.add('is-hidden');
-    document.getElementById('hint-text').innerText = '';
+    document.getElementById('hint-text').textContent = '';
     
     const q = currentQuestions[currentIndex];
     const wordText = q.word || q.en;
     const meaningText = q.meaning || q.jp;
 
-    document.getElementById('quiz-progress').innerText = `${currentIndex + 1} / ${currentQuestions.length}`;
+    document.getElementById('quiz-progress').textContent = `${currentIndex + 1} / ${currentQuestions.length}`;
 
     if (currentMode === 'choice') {
         document.getElementById('choice-area').classList.remove('is-hidden');
         document.getElementById('input-area').classList.add('is-hidden');
-        document.getElementById('question-text').innerText = wordText;
+        document.getElementById('question-text').textContent = wordText;
         
         const allWords = Object.values(wordBank).flat();
-        const otherJps = allWords.filter(item => (item.meaning || item.jp) !== meaningText).map(item => item.meaning || item.jp);
+        const otherJps = allWords
+            .filter(item => (item.meaning || item.jp) !== meaningText)
+            .map(item => item.meaning || item.jp);
         
         // 修正: shuffle -> shuffleArray
         const wrongChoices = shuffleArray(otherJps).slice(0, 3);
@@ -399,7 +401,7 @@ function loadQuestion() {
 
         for (let i = 0; i < 4; i++) {
             const btn = document.getElementById(`opt${i}`);
-            btn.innerText = options[i] || "---";
+            btn.textContent = options[i] || "---";
             btn.disabled = false;
             btn.className = "btn-option";
             btn.dataset.correct = (options[i] === meaningText);
@@ -408,18 +410,21 @@ function loadQuestion() {
         document.getElementById('choice-area').classList.add('is-hidden');
         document.getElementById('input-area').classList.remove('is-hidden');
         document.getElementById('submit-input-btn').classList.remove('is-hidden');
-        document.getElementById('question-text').innerText = meaningText;
+        document.getElementById('question-text').textContent = meaningText;
         
         const hint = wordText.split(' ').map(word => {
-            return word[0] + '_'.repeat(word.length - 1);
+            // 2文字目までを取り出して、残りを「_」にする
+            const prefix = word.slice(0, 2);
+            const blanks = '_'.repeat(Math.max(0, word.length - 2));
+            return prefix + blanks;
         }).join(' ');
-        
-        document.getElementById('hint-text').innerText = hint;
+
+        document.getElementById('hint-text').textContent = hint;
         document.getElementById('user-input').value = '';
         document.getElementById('user-input').disabled = false;
     }
 }
-
+    
 function showFeedback(isCorrect, answerText) {
     const feedbackArea = document.getElementById('feedback-area');
     const feedbackText = document.getElementById('feedback-text');
