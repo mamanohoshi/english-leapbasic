@@ -465,7 +465,7 @@ function checkChoice(selectedIndex) {
     showFeedback(isCorrect, meaningText);
 }
 
-// 「わからない」ボタンが押された時の処理
+// 「わからない」ボタンが押された時の処理（安全版）
 function handleDontKnow() {
     // 1. 選択肢と「わからない」ボタンを無効化（連打防止）
     const options = document.querySelectorAll('.btn-option');
@@ -475,13 +475,27 @@ function handleDontKnow() {
 
     // 2. 現在の問題データを取得
     const currentQ = currentQuestions[currentIndex];
-
-    // 3. フィードバック画面（正解）の表示設定
     const feedbackText = document.getElementById('feedback-text');
-    feedbackText.innerHTML = `
-        <div style="color: #ea580c; font-weight: bold; font-size: 1.1rem; margin-bottom: 8px;">パスしました</div>
-        <div>正解は <strong>「${currentQ.meaning}」</strong> です</div>
-    `;
+
+    // 3. 一度表示をクリアして、安全な要素（textContent）で組み立て
+    feedbackText.innerHTML = '';
+
+    const headerDiv = document.createElement('div');
+    headerDiv.style.color = '#ea580c';
+    headerDiv.style.fontWeight = 'bold';
+    headerDiv.style.fontSize = '1.1rem';
+    headerDiv.style.marginBottom = '8px';
+    headerDiv.textContent = 'パスしました';
+
+    const bodyDiv = document.createElement('div');
+    bodyDiv.textContent = '正解は ';
+    const strongEl = document.createElement('strong');
+    strongEl.textContent = `「${currentQ.meaning || currentQ.jp}」`;
+    bodyDiv.appendChild(strongEl);
+    bodyDiv.appendChild(document.createTextNode(' です'));
+
+    feedbackText.appendChild(headerDiv);
+    feedbackText.appendChild(bodyDiv);
 
     // 4. 4択エリアを隠し、フィードバックエリアを表示
     document.getElementById('choice-area').classList.add('is-hidden');
