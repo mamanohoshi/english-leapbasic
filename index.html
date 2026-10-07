@@ -323,12 +323,14 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
+// 堅牢なシャッフル処理（Fisher-Yatesアルゴリズム）
+function shuffleArray(array) {
+    const clone = [...array];
+    for (let i = clone.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+        [clone[i], clone[j]] = [clone[j], clone[i]];
     }
-    return array;
+    return clone;
 }
 
 function showSetup() {
@@ -347,12 +349,23 @@ function startQuiz(mode) {
     currentMode = mode;
     const selectedUnit = document.getElementById('unit-select').value;
     
+    // データが存在するかチェック
     if (!wordBank[selectedUnit] || wordBank[selectedUnit].length === 0) {
         alert('選択された単元のデータが存在しません。');
         return;
     }
 
-    currentQuestions = shuffle([...wordBank[selectedUnit]]).slice(0, 10);
+    // idや構造が崩れている無効なデータをあらかじめ除外（安全対策）
+    const validWords = wordBank[selectedUnit].filter(item => item && (item.word || item.english || item.id));
+
+    // データが足りない場合のチェック
+    if (validWords.length === 0) {
+        alert('有効な単語データが見つかりませんでした。');
+        return;
+    }
+
+    // 完全ランダムシャッフルして10問（データ数が10未満ならその全件）を取得
+    currentQuestions = shuffleArray(validWords).slice(0, 10);
     currentIndex = 0;
     score = 0;
 
@@ -379,9 +392,11 @@ function loadQuestion() {
         
         const allWords = Object.values(wordBank).flat();
         const otherJps = allWords.filter(item => (item.meaning || item.jp) !== meaningText).map(item => item.meaning || item.jp);
-        const wrongChoices = shuffle(otherJps).slice(0, 3);
         
-        const options = shuffle([meaningText, ...wrongChoices]);
+        // 修正: shuffle -> shuffleArray
+        const wrongChoices = shuffleArray(otherJps).slice(0, 3);
+        const options = shuffleArray([meaningText, ...wrongChoices]);
+
         for (let i = 0; i < 4; i++) {
             const btn = document.getElementById(`opt${i}`);
             btn.innerText = options[i] || "---";
@@ -472,7 +487,6 @@ function handleDontKnow() {
     document.getElementById('choice-area').classList.add('is-hidden');
     document.getElementById('feedback-area').classList.remove('is-hidden');
 }
-
 
 function checkInput() {
     const userAns = document.getElementById('user-input').value.trim().toLowerCase();
