@@ -621,34 +621,22 @@
     "id": 167,
     "word": "border",
     "phonetic": "[bɔ́ːrdər]",
-    "cefr": "B1",
-    "part_of_speech": "noun",
     "meaning": "国境（地帯）、境界",
     "notes": "国と国、あるいは地域と地域を分ける境界線を指す。",
-    "example_en": "Tourists must show their passports when crossing the border.",
-    "example_ja": "観光客は国境を越える際にパスポートを提示しなければならない。"
   },
   {
     "id": 168,
     "word": "immediately",
     "phonetic": "[imíːdiətli]",
-    "cefr": "B1",
-    "part_of_speech": "adverb",
     "meaning": "すぐに、直ちに",
     "notes": "「間を置かずにすぐ」を表す。日常会話では right away もよく使われる。",
-    "example_en": "If you experience any pain, please contact your doctor immediately.",
-    "example_ja": "もし痛みを感じた場合は、すぐに医師にご連絡ください。"
   },
   {
     "id": 169,
     "word": "meanwhile",
     "phonetic": "[míːnhwàil]",
-    "cefr": "B1",
-    "part_of_speech": "adverb",
     "meaning": "その間に、一方では",
     "notes": "別の出来事が同時に進行していることを示す接続副詞。",
-    "example_en": "The kitchen staff prepared the dinner; meanwhile, the servers set the tables.",
-    "example_ja": "厨房のスタッフが夕食を準備し、その間にサーバーたちがテーブルのセッティングをした。"
   },
   {
     "id": 170,
@@ -670,6 +658,27 @@
     "part_of_speech": "adjective",
     "meaning": "明白な",
     "notes": "「(見てすぐ分かるほど)明らかな」(＊時に「不快感」を示す。)"
+  },
+  {
+    "id": 1301,
+    "word": "precious",
+    "part_of_speech": "adjective",
+    "meaning": "(時間や命などが)貴重な、(宝石などが)高価な",
+    "notes": "priceless「(値段がつけられないほどに)値打ちのある」、valuable「(金銭的に)価値のある」"
+  },
+  {
+    "id": 1316,
+    "word": "fragment",
+    "part_of_speech": "noun",
+    "meaning": "破片〈可算〉",
+    "notes": "「(何か1つの物の)かけら、断片」"
+  },
+  {
+    "id": 1327,
+    "word": "shortage",
+    "part_of_speech": "noun",
+    "meaning": "不足〈可算〉",
+    "notes": "「(外部から供給可能な物が)必要な量に足りていない状態」◇lack「((自信)など外部から供給不可能な物が)足りていない状態」"
   },
   {
     "id": 171,
