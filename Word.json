@@ -654,22 +654,28 @@
     "id": 170,
     "word": "content",
     "phonetic": "[kɑ́ntent]",
-    "cefr": "B1",
-    "part_of_speech": "noun",
-    "meaning": "①中身、内容 ②（形容詞で）満足して",
+    "meaning": "中身、内容（形容詞で）満足して",
     "notes": "名詞としては「内容」を意味し、形容詞（be content with ~）としては「〜に満足している」を意味する。",
-    "example_en": "He was quite content with his current position at the firm.",
-    "example_ja": "彼は会社での現在のポジションにとても満足していた。"
+  },
+  {
+    "id": 1305,
+    "word": "reasonable",
+    "part_of_speech": "adjective",
+    "meaning": "理のかなった ,(値段が)手頃な",
+    "notes": "「値段が理のかなっていて高すぎない」"
+  },
+  {
+    "id": 1308,
+    "word": "obvious",
+    "part_of_speech": "adjective",
+    "meaning": "明白な",
+    "notes": "「(見てすぐ分かるほど)明らかな」(＊時に「不快感」を示す。)"
   },
   {
     "id": 171,
     "word": "英単語",
     "phonetic": "[発音記号]",
-    "cefr": "B1",
-    "part_of_speech": "noun",
     "meaning": "①中身、内容 ②（形容詞で）満足して",
     "notes": "名詞としては「内容」を意味し、形容詞（be content with ~）としては「〜に満足している」を意味する。",
-    "example_en": "He was quite content with his current position at the firm.",
-    "example_ja": "彼は会社での現在のポジションにとても満足していた。"
   }
 ]
