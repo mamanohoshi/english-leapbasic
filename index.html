@@ -507,8 +507,9 @@ function handleDontKnow() {
     feedbackText.appendChild(headerDiv);
     feedbackText.appendChild(bodyDiv);
 
-    // 4. 4択エリアを隠し、フィードバックエリアを表示
+    // 4. 4択エリアと「わからない」ボタンを隠し、フィードバックエリアを表示
     document.getElementById('choice-area').classList.add('is-hidden');
+    if (dontKnowBtn) dontKnowBtn.classList.add('is-hidden'); // ★ここでパスボタンを隠す！
     document.getElementById('feedback-area').classList.remove('is-hidden');
 }
 
@@ -527,9 +528,12 @@ function checkInput() {
 function nextQuestion() {
     currentIndex++;
     if (currentIndex < currentQuestions.length) {
-        // 次の問題へ進むため「わからない」ボタンを有効に戻す
+        // 次の問題へ進むため「わからない」ボタンを有効に戻し、表示する
         const dontKnowBtn = document.getElementById('btn-dont-know');
-        if (dontKnowBtn) dontKnowBtn.disabled = false;
+        if (dontKnowBtn) {
+            dontKnowBtn.disabled = false;
+            dontKnowBtn.classList.remove('is-hidden'); // ★ここでパスボタンを再表示！
+        }
 
         loadQuestion();
     } else {
