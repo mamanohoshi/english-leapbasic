@@ -485,7 +485,434 @@
     "id": 170,
     "word": "content",
     "part_of_speech": "noun / adjective",
-    "meaning": "①中身、内容 ②（形容詞で）満足して",
+    "meaning": "中身、内容、（形容詞で）満足して",
     "notes": "名詞としては「内容」を意味し、形容詞（be content with ~）としては「〜に満足している」を意味する。"
-  }
+  },
+  {
+    "id": 171,
+    "word": "vivid",
+    "part_of_speech": "adjective",
+    "meaning": "鮮明な",
+    "notes": "「(記憶，描写などが)鮮明な」から「(色が)鮮明な」まで。"
+  },
+  {
+    "id": 172,
+    "word": "primitive",
+    "part_of_speech": "adjective",
+    "meaning": "原始的な",
+    "notes": "「(発達していない)原始的な」"
+  },
+  {
+    "id": 173,
+    "word": "quantity",
+    "part_of_speech": "noun",
+    "meaning": "量",
+    "notes": "「分量，数量」"
+  },
+  {
+    "id": 174,
+    "word": "modest",
+    "part_of_speech": "adjective",
+    "meaning": "謙虚な，(物が)大きくない，高くナイ",
+    "notes": "(よい意味で)慎み深い、控えめな。謙遜した表現。"
+  },
+  {
+    "id": 175,
+    "word": "magnificent",
+    "part_of_speech": "adjective",
+    "meaning": "壮大な，すばらしい",
+    "notes": "=very beautiful, very impressive"
+  },
+  {
+    "id": 176,
+    "word": "rough",
+    "part_of_speech": "adjective",
+    "meaning": "(表面が)粗い，おおざっぱな",
+    "notes": "「粗い，ざらざらした」"
+  },
+  {
+    "id": 177,
+    "word": "calculate",
+    "part_of_speech": "verb",
+    "meaning": "〜を計算する",
+    "notes": "「(数量や費用などを)算出する」"
+  },
+  {
+    "id": 178,
+    "word": "sufficient",
+    "part_of_speech": "adjective",
+    "meaning": "十分な",
+    "notes": "enough より堅い語。"
+  },
+  {
+    "id": 179,
+    "word": "critical",
+    "part_of_speech": "adjective",
+    "meaning": "重大な，危機的な，批判的な",
+    "notes": "「(運命を決定するような)重要な」「同意できない」"
+  },
+  {
+    "id": 180,
+    "word": "vague",
+    "part_of_speech": "adjective",
+    "meaning": "曖昧な，漠然とした",
+    "notes": "「(情報不足で)輪郭がはっきりしない」 ambiguous 「(いくつかの意味にとれて)曖昧な」"
+  },
+  {
+    "id": 181,
+    "word": "stupid",
+    "part_of_speech": "adjective",
+    "meaning": "ばかな",
+    "notes": "「(判断力に欠けていて)愚かな」"
+  },
+  {
+    "id": 182,
+    "word": "rational",
+    "part_of_speech": "adjective",
+    "meaning": "理性的な",
+    "notes": "「(感情ではなく)理性に基づいた」"
+  },
+  {
+    "id": 183,
+    "word": "precious",
+    "part_of_speech": "adjective",
+    "meaning": "(時間や命などが)貴重な，(宝石などが)高価な",
+    "notes": "priceless 「(値段がつけられないほどに)値打ちのある」 valuable 「(金銭的に)価値のある」"
+  },
+  {
+    "id": 184,
+    "word": "fragment",
+    "part_of_speech": "noun",
+    "meaning": "破片",
+    "notes": "「(何か1つの物の)かけら，断片」"
+  },
+  {
+    "id": 185,
+    "word": "principal",
+    "part_of_speech": "adjective / noun",
+    "meaning": "主要な / (米)校長",
+    "notes": "(英)では headmaster などと表現する。"
+  },
+  {
+    "id": 186,
+    "word": "object",
+    "part_of_speech": "noun / verb",
+    "meaning": "物，目的 / (to ~) (〜に感情的に)反対する",
+    "notes": "「(生き物以外の)形ある物」 *日常では, ①thing ②purpose のほうが使われる。"
+  },
+  {
+    "id": 187,
+    "word": "enemy",
+    "part_of_speech": "noun",
+    "meaning": "敵",
+    "notes": "「敵意，憎しみを抱く相手」 opponent 「(試合などの)対戦相手」"
+  },
+  {
+    "id": 188,
+    "word": "severe",
+    "part_of_speech": "adjective",
+    "meaning": "(天候，批判，罰則などが)厳しい",
+    "notes": "「(天候などが)厳しい」から「(痛みなど)身体的に厳しい」「(批判，罰則など)精神的に厳しい」まで。"
+  },
+  {
+    "id": 189,
+    "word": "particular",
+    "part_of_speech": "adjective",
+    "meaning": "ある特定の，(about ~) (〜の)好みがうるさい",
+    "notes": "「(特定の)部分に注意を払う」 → 「こだわりがある」"
+  },
+  {
+    "id": 190,
+    "word": "victim",
+    "part_of_speech": "noun",
+    "meaning": "犠牲者",
+    "notes": "「(犯罪の)犠牲者」から「(自然災害の)犠牲者」まで。"
+  },
+  {
+    "id": 191,
+    "word": "delicate",
+    "part_of_speech": "adjective",
+    "meaning": "繊細な，微妙な",
+    "notes": "「繊細が故に壊れやすい」"
+  },
+  {
+    "id": 192,
+    "word": "jealous",
+    "part_of_speech": "adjective",
+    "meaning": "(of ~) (~)に嫉妬した",
+    "notes": "「(人が持っている物や能力、運などに)嫉妬する，(〜を)嫉妬深く思う」 * envious 「羨んで」に「不快感」が加わった語。"
+  },
+  {
+    "id": 193,
+    "word": "outstanding",
+    "part_of_speech": "adjective",
+    "meaning": "傑出した，目立った",
+    "notes": "「(通例，よい意味で)突出している」"
+  },
+  {
+    "id": 194,
+    "word": "passive",
+    "part_of_speech": "adjective",
+    "meaning": "受動的な，消極的な",
+    "notes": "「自分からは特に何もしない」"
+  },
+  {
+    "id": 195,
+    "word": "definite",
+    "part_of_speech": "adjective",
+    "meaning": "明確な",
+    "notes": "「(輪郭が)はっきりした」 → 「はっきり分かる」"
+  },
+  {
+    "id": 196,
+    "word": "odd",
+    "part_of_speech": "adjective",
+    "meaning": "奇妙な，奇数の",
+    "notes": "「違和感」を強調した語。*「奇数の」の意味は「(偶数で割れない)奇妙な数」から。"
+  },
+  {
+    "id": 197,
+    "word": "witness",
+    "part_of_speech": "verb / noun",
+    "meaning": "〜を目撃する / 目撃者",
+    "notes": "犯罪や事故について見たことを語る(人)。"
+  },
+  {
+    "id": 198,
+    "word": "stuff",
+    "part_of_speech": "noun / verb",
+    "meaning": "(漠然とした)物 / 〜を詰める",
+    "notes": "「ごちゃごちゃと詰まった物」 → 「名前が分からない物」"
+  },
+  {
+    "id": 199,
+    "word": "horrible",
+    "part_of_speech": "adjective",
+    "meaning": "(物，天気などが)とてもひどい",
+    "notes": "=very bad"
+  },
+  {
+    "id": 200,
+    "word": "unit",
+    "part_of_speech": "noun",
+    "meaning": "単位",
+    "notes": "「(全体を構成する)単位」から「(グラムなど測定の)単位」まで。"
+  },
+  {
+    "id": 201,
+    "word": "superior",
+    "part_of_speech": "adjective",
+    "meaning": "(be - to ~) (~)より優れている",
+    "notes": "日常では be better than ~ のほうが使われる。"
+  },
+  {
+    "id": 202,
+    "word": "ridiculous",
+    "part_of_speech": "adjective",
+    "meaning": "ばかげた",
+    "notes": "「(信じられないような)ばかさ加減の」"
+  },
+  {
+    "id": 203,
+    "word": "range",
+    "part_of_speech": "noun / verb",
+    "meaning": "範囲 / (from A to B) (AからBの)範囲に及ぶ",
+    "notes": "「範囲」を表す最も一般的な語。"
+  },
+  {
+    "id": 204,
+    "word": "miserable",
+    "part_of_speech": "adjective",
+    "meaning": "悲惨な",
+    "notes": "「極めて不幸な」"
+  },
+  {
+    "id": 205,
+    "word": "individual",
+    "part_of_speech": "adjective / noun",
+    "meaning": "個人の，個々の / 個人，個体",
+    "notes": "「(社会，集団を意識した場合の)個人，個体」 (*必ずしも「人間」を表しているとは限らない。)"
+  },
+  {
+    "id": 206,
+    "word": "pure",
+    "part_of_speech": "adjective",
+    "meaning": "純粋な",
+    "notes": "「混じり気のない」"
+  },
+  {
+    "id": 207,
+    "word": "reasonable",
+    "part_of_speech": "adjective",
+    "meaning": "理のかなった，(値段が)手頃な",
+    "notes": "「値段が理のかなっていて高すぎない」"
+  },
+  {
+    "id": 208,
+    "word": "respective",
+    "part_of_speech": "adjective",
+    "meaning": "それぞれの",
+    "notes": "通例，名詞の複数形を伴う。 each 「それぞれの」 (*名詞の単数形を伴う。)"
+  },
+  {
+    "id": 209,
+    "word": "obvious",
+    "part_of_speech": "adjective",
+    "meaning": "明白な",
+    "notes": "「(見てすぐ分かるほど)明らかな」 (*時に「不快感」を示す。)"
+  },
+  {
+    "id": 210,
+    "word": "essential",
+    "part_of_speech": "adjective",
+    "meaning": "不可欠な",
+    "notes": "= extremely important and necessary"
+  },
+  {
+    "id": 211,
+    "word": "proportion",
+    "part_of_speech": "noun",
+    "meaning": "比率",
+    "notes": "「(全体の中での)割合，(ほかとの)比率」"
+  },
+  {
+    "id": 212,
+    "word": "steady",
+    "part_of_speech": "adjective",
+    "meaning": "着実な，一定の",
+    "notes": "「よい状態が安定して続く」"
+  },
+  {
+    "id": 213,
+    "word": "separate",
+    "part_of_speech": "adjective / verb",
+    "meaning": "別々の / 〜を引き離す",
+    "notes": "「(本来はつながっている物)を引き離す」 (*分けられた物はそれぞれが別の種類となる。)"
+  },
+  {
+    "id": 214,
+    "word": "decline",
+    "part_of_speech": "noun",
+    "meaning": "減少",
+    "notes": "「(減少した結果)悪影響を及ぼす」ことを示唆。"
+  },
+  {
+    "id": 215,
+    "word": "suspect",
+    "part_of_speech": "noun / verb",
+    "meaning": "容疑者 / (that S V) 〜ではないかと思う",
+    "notes": "「〜であると疑う」"
+  },
+  {
+    "id": 216,
+    "word": "cruel",
+    "part_of_speech": "adjective",
+    "meaning": "残酷な",
+    "notes": "「(相手に苦痛を与えても何も感じないくらいに)冷徹な」"
+  },
+  {
+    "id": 217,
+    "word": "plain",
+    "part_of_speech": "adjective",
+    "meaning": "明白な，分かりやすい，質素な",
+    "notes": "「平らな，何もない」"
+  },
+  {
+    "id": 218,
+    "word": "conflict",
+    "part_of_speech": "noun",
+    "meaning": "対立",
+    "notes": "「(意見や利害の)対立」から「(心の)葛藤」まで。 disagreement 「(人との)意見の不一致，対立」"
+  },
+  {
+    "id": 219,
+    "word": "efficient",
+    "part_of_speech": "adjective",
+    "meaning": "能率的な",
+    "notes": "「(物や組織などが)無駄がない」"
+  },
+  {
+    "id": 220,
+    "word": "mutual",
+    "part_of_speech": "adjective",
+    "meaning": "(感情，行為などが)相互の",
+    "notes": "「お互いが相手に対して働きかけている」"
+  },
+  {
+    "id": 221,
+    "word": "marked",
+    "part_of_speech": "adjective",
+    "meaning": "(名詞の前で)際立った",
+    "notes": "「すぐ目につく」"
+  },
+  {
+    "id": 222,
+    "word": "generous",
+    "part_of_speech": "adjective",
+    "meaning": "気前のよい，寛大な",
+    "notes": "broad-minded 「寛大な(=心が広い)」"
+  },
+  {
+    "id": 223,
+    "word": "shortage",
+    "part_of_speech": "noun",
+    "meaning": "不足",
+    "notes": "「(外部から供給可能な物が)必要な量に足りていない状態」 lack 「(『自信』など外部から供給不可能な物が)足りていない状態」"
+  },
+  {
+    "id": 224,
+    "word": "aggressive",
+    "part_of_speech": "adjective",
+    "meaning": "攻撃的な，積極的な",
+    "notes": "主に「マイナスイメージ」で使うが、明らかに「プラスイメージ」と分かる場合は「積極的な」の意味となる。"
+  },
+  {
+    "id": 225,
+    "word": "stable",
+    "part_of_speech": "adjective",
+    "meaning": "安定した",
+    "notes": "「(上がったり下がったりの変化がなく)安定した」"
+  },
+  {
+    "id": 226,
+    "word": "mature",
+    "part_of_speech": "adjective",
+    "meaning": "成熟した",
+    "notes": "「(心身ともに)十分に成長した、〈英〉(チーズなどが)熟成した」"
+  },
+  {
+    "id": 227,
+    "word": "incredible",
+    "part_of_speech": "adjective",
+    "meaning": "信じられない",
+    "notes": "unbelievable を強調した語。"
+  },
+  {
+    "id": 228,
+    "word": "substance",
+    "part_of_speech": "noun",
+    "meaning": "物質，本質，根拠",
+    "notes": "material より堅い語。"
+  },
+  {
+    "id": 229,
+    "word": "murder",
+    "part_of_speech": "noun",
+    "meaning": "殺人",
+    "notes": "mercy killing 「安楽死」"
+  },
+  {
+    "id": 230,
+    "word": "curious",
+    "part_of_speech": "adjective",
+    "meaning": "好奇心が強い，好奇心をそそる",
+    "notes": "「未知のものをとても知りたいと思う」"
+  },
+  {
+    "id": 231,
+    "word": "remarkable",
+    "part_of_speech": "adjective",
+    "meaning": "注目すべき，すばらしい",
+    "notes": "「発言(remark)に値するほどの」"
+  }  
 ]
