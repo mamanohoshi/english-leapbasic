@@ -381,102 +381,63 @@ function startQuiz(mode) {
 }
 
 function loadQuestion() {
-
     document.getElementById('feedback-area').classList.add('is-hidden');
-
     document.getElementById('hint-text').textContent = '';
-
     
-
     const q = currentQuestions[currentIndex];
-
     const wordText = q.word || q.en;
-
     const meaningText = q.meaning || q.jp;
-
-
 
     document.getElementById('quiz-progress').textContent = `${currentIndex + 1} / ${currentQuestions.length}`;
 
-
-
     if (currentMode === 'choice') {
-
         document.getElementById('choice-area').classList.remove('is-hidden');
-
         document.getElementById('input-area').classList.add('is-hidden');
-
         document.getElementById('question-text').textContent = wordText;
-
         
+        // ★【修正点】wordBank ではなく currentQuestions（出題中の単語リスト）からダミーを作成
+        // もしアプリ全体で全単語が入っている配列変数（allWords等）があれば、ここを差し替えてもOKです
+        const pool = (typeof allWords !== 'undefined' && Array.isArray(allWords)) ? allWords : currentQuestions;
 
-        const allWords = Object.values(wordBank).flat();
+        // 正解の意味（meaningText）と同じものを【除外】してダミー用のリストを作る
+        const otherJps = pool
+            .map(item => item.meaning || item.jp)
+            .filter(meaning => meaning && meaning !== meaningText);
 
-        const otherJps = allWords
-
-            .filter(item => (item.meaning || item.jp) !== meaningText)
-
-            .map(item => item.meaning || item.jp);
-
+        // 重複を除いたリスト（Set）にしてからシャッフルし、3つ取得
+        const uniqueOtherJps = [...new Set(otherJps)];
+        const wrongChoices = shuffleArray(uniqueOtherJps).slice(0, 3);
         
-
-        // 修正: shuffle -> shuffleArray
-
-        const wrongChoices = shuffleArray(otherJps).slice(0, 3);
-
+        // 正解とダミーを混ぜてシャッフル
         const options = shuffleArray([meaningText, ...wrongChoices]);
 
-
-
         for (let i = 0; i < 4; i++) {
-
             const btn = document.getElementById(`opt${i}`);
-
-            btn.textContent = options[i] || "---";
-
-            btn.disabled = false;
-
-            btn.className = "btn-option";
-
-            btn.dataset.correct = (options[i] === meaningText);
-
+            if (btn) {
+                btn.textContent = options[i] || "---";
+                btn.disabled = false;
+                btn.className = "btn-option";
+                btn.dataset.correct = (options[i] === meaningText);
+            }
         }
-
     } else {
-
         document.getElementById('choice-area').classList.add('is-hidden');
-
         document.getElementById('input-area').classList.remove('is-hidden');
-
         document.getElementById('submit-input-btn').classList.remove('is-hidden');
-
         document.getElementById('question-text').textContent = meaningText;
-
         
-
         const hint = wordText.split(' ').map(word => {
-
             // 2文字目までを取り出して、残りを「_」にする
-
             const prefix = word.slice(0, 2);
-
             const blanks = '_'.repeat(Math.max(0, word.length - 2));
-
             return prefix + blanks;
-
         }).join(' ');
 
-
-
         document.getElementById('hint-text').textContent = hint;
-
         document.getElementById('user-input').value = '';
-
         document.getElementById('user-input').disabled = false;
-
     }
-
-} 
+}
     
 function showFeedback(isCorrect, answerText) {
     const feedbackArea = document.getElementById('feedback-area');
