@@ -381,43 +381,102 @@ function startQuiz(mode) {
 }
 
 function loadQuestion() {
+
     document.getElementById('feedback-area').classList.add('is-hidden');
+
     document.getElementById('hint-text').textContent = '';
+
     
+
     const q = currentQuestions[currentIndex];
+
     const wordText = q.word || q.en;
+
     const meaningText = q.meaning || q.jp;
 
+
+
     document.getElementById('quiz-progress').textContent = `${currentIndex + 1} / ${currentQuestions.length}`;
-    
-    // 単語の表示
-    document.getElementById('quiz-word').textContent = wordText;
 
-    // ★【修正ポイント】全単語データから「現在の問題（正解）」を除外してダミーを作成する
-    // ※ allWords はアプリ全体の単語データ配列変数名に合わせて変更してください
-    const otherWords = allWords.filter(item => (item.id !== q.id) && (item.word !== wordText));
 
-    // 除外した配列からランダムに3つ選ぶ
-    const dummyChoices = shuffleArray(otherWords).slice(0, 3);
 
-    // 正解とダミー3つを合わせてシャッフルする
-    const choices = shuffleArray([q, ...dummyChoices]);
+    if (currentMode === 'choice') {
 
-    // 選択肢ボタンを描画する（例）
-    const optionsContainer = document.getElementById('options-container');
-    optionsContainer.innerHTML = '';
+        document.getElementById('choice-area').classList.remove('is-hidden');
 
-    choices.forEach(choice => {
-        const btn = document.createElement('button');
-        btn.className = 'option-btn';
-        btn.textContent = choice.meaning || choice.jp;
+        document.getElementById('input-area').classList.add('is-hidden');
+
+        document.getElementById('question-text').textContent = wordText;
+
         
-        // クリック時の正誤判定
-        btn.onclick = () => checkAnswer(choice, q);
+
+        const allWords = Object.values(wordBank).flat();
+
+        const otherJps = allWords
+
+            .filter(item => (item.meaning || item.jp) !== meaningText)
+
+            .map(item => item.meaning || item.jp);
+
         
-        optionsContainer.appendChild(btn);
-    });
-}
+
+        // 修正: shuffle -> shuffleArray
+
+        const wrongChoices = shuffleArray(otherJps).slice(0, 3);
+
+        const options = shuffleArray([meaningText, ...wrongChoices]);
+
+
+
+        for (let i = 0; i < 4; i++) {
+
+            const btn = document.getElementById(`opt${i}`);
+
+            btn.textContent = options[i] || "---";
+
+            btn.disabled = false;
+
+            btn.className = "btn-option";
+
+            btn.dataset.correct = (options[i] === meaningText);
+
+        }
+
+    } else {
+
+        document.getElementById('choice-area').classList.add('is-hidden');
+
+        document.getElementById('input-area').classList.remove('is-hidden');
+
+        document.getElementById('submit-input-btn').classList.remove('is-hidden');
+
+        document.getElementById('question-text').textContent = meaningText;
+
+        
+
+        const hint = wordText.split(' ').map(word => {
+
+            // 2文字目までを取り出して、残りを「_」にする
+
+            const prefix = word.slice(0, 2);
+
+            const blanks = '_'.repeat(Math.max(0, word.length - 2));
+
+            return prefix + blanks;
+
+        }).join(' ');
+
+
+
+        document.getElementById('hint-text').textContent = hint;
+
+        document.getElementById('user-input').value = '';
+
+        document.getElementById('user-input').disabled = false;
+
+    }
+
+} 
     
 function showFeedback(isCorrect, answerText) {
     const feedbackArea = document.getElementById('feedback-area');
